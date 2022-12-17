@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1947274716071622480}
   - component: {fileID: 2262362474141788300}
   - component: {fileID: 2569474964184784399}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DisplayIcicle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

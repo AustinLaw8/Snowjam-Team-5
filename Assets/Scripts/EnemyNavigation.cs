@@ -13,11 +13,25 @@ public class EnemyNavigation : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.destination = goal.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        agent.destination = goal.position;   
+        CheckGoal();
+    }
+
+    public float GetPathDistance()
+    {
+        return agent.remainingDistance;
+    }
+
+    void CheckGoal()
+    {
+        if (agent.remainingDistance < 0.02f)
+        {
+            // Call to GameManager
+        }
     }
 }

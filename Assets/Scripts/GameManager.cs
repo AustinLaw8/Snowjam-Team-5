@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] public Vector3[] tempNodes;
     public static Vector3[] s_tempNodes;
+    public Transform[] goal;
     private Queue<int> waves;
 
     public bool waveInProgress;
