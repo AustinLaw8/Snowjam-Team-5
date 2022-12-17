@@ -96,6 +96,7 @@ public class PlayerShooting : MonoBehaviour
             Destroy(icicleList[icicleCount - 1]);
             icicleList.RemoveAt(icicleCount - 1);
             icicleCount--;
+            curDelay = fireDelay;
         } else
         {
             anim.Play("Reload");
