@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2387246047203252792
+--- !u!1001 &3194618512352802422
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,8 +9,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
       propertyPath: m_Name
-      value: Icicle
+      value: Piercing Icicle
       objectReference: {fileID: 0}
+    - target: {fileID: 3040572234688232321, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e290fc1b43b42234d82d21e4e16bd517, type: 2}
     - target: {fileID: 5384698844974537653, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -54,6 +58,10 @@ PrefabInstance:
     - target: {fileID: 5384698844974537653, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904813251244335813, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: icicleType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
