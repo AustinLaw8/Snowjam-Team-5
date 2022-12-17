@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float waitTime;
     [SerializeField] private GameObject ENEMY_PREFAB;
 
-    // [SerializeField] private PlayerScript player;
+    [SerializeField] private PlayerScript player;
+    [SerializeField] private int cash;
     
     [SerializeField] public Vector3[] tempNodes;
     public static Vector3[] s_tempNodes;
@@ -23,8 +24,9 @@ public class GameManager : MonoBehaviour
         waveInProgress = false;
         waves = new Queue<int>();
         waves.Enqueue(5);
+        waves.Enqueue(5);
         currentEnemies = new HashSet<Enemy>();
-        // if (player == null) player = GameObject.Find("Player").transform.GetChild(2).GetComponent<PlayerScript>();
+        if (player == null) player = GameObject.Find("Player").transform.GetChild(2).GetComponent<PlayerScript>();
     }
 
     void Update()
@@ -33,7 +35,6 @@ public class GameManager : MonoBehaviour
         {
             EndWave();
         }
-        // something about giving player money for wave end or somethi nidk
     }
 
     // Starts next wave
@@ -64,11 +65,32 @@ public class GameManager : MonoBehaviour
         Debug.Log("Wave complete");
         if (waves.Count == 0)
         {
-            // Win Game
+            Debug.Log("No more waves, gg");
         }
         waveInProgress = false;
+        // TODO:
+        // Give player cash for winning
+        // Mini UI thing of "Wave X/Y"
     }
+
+    public PlayerScript GetPlayer() { return player; } 
 
     public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); }
     public HashSet<Enemy> GetEnemies() { return currentEnemies; }
+
+    public int GetCash() { return cash; }
+    public void IncreaseCash(int amount) { cash += amount; }
+    
+    public bool SpendCash(int amount) {
+        if (amount > cash)
+        {
+            return false;
+        }
+        else
+        {
+            cash -= amount;
+            return true;
+        }
+    }
+
 }

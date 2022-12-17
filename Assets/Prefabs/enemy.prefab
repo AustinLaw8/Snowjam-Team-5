@@ -196,3 +196,4 @@ MonoBehaviour:
   velocityModifier: 2
   friction: 0.15
   hp: 10
+  value: 1
