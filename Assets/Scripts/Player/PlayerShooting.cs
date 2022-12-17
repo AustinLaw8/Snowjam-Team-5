@@ -62,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
         float angle = Time.realtimeSinceStartup % 2f * Mathf.PI * 2f;
         for (int i = 0; i < icicleList.Count; i++)
         {
-            icicleList[i].transform.localPosition = new Vector3(Mathf.Sin(angle + angleOffset * i) * 0.1f, 0.35f, Mathf.Cos(angle + angleOffset * i) * 0.1f);
+            icicleList[i].transform.localPosition = new Vector3(Mathf.Sin(angle + angleOffset * i) * 0.12f, 0.35f, Mathf.Cos(angle + angleOffset * i) * 0.12f);
         }
 
         if (curDelay > 0)
