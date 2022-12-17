@@ -116,4 +116,4 @@ MonoBehaviour:
   damage: 4
   gameManager: {fileID: 0}
   targettingType: 2
-  PROJECTILE_PREFAB: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+  PROJECTILE_PREFAB: {fileID: 7929551073756833167, guid: 98f542446d8774ab9a0d3aa5f94893b3, type: 3}
