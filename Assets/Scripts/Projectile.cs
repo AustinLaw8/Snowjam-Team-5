@@ -22,7 +22,10 @@ public class Projectile : MonoBehaviour
         {
             other.GetComponent<HPEntity>().TakeDmg(dmg);
         }
-        DestroySelf();
+        if (other.gameObject.layer != 7)
+        {
+            DestroySelf();
+        }
     }
 
     protected void DestroySelf()
