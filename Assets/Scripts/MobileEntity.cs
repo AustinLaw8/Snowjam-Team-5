@@ -11,6 +11,18 @@ public class MobileEntity : MonoBehaviour
     [SerializeField] protected float velocityModifier = 1f, friction;
     float targetX, targetZ, maxX, maxZ;
     Vector3 vect3, vect2;
+
+    [SerializeField] bool disconnectedTrfms;
+
+    void Awake()
+    {
+        if (!disconnectedTrfms)
+        {
+            trfm = this.transform;
+            rb = this.gameObject.GetComponent<Rigidbody>();
+        }
+    }
+
     protected void addHorizontalVelocity(float forwardAmount, float rightwardAmount, float forwardMax, float rightwardMax)
     {
         forwardAmount *= velocityModifier;
