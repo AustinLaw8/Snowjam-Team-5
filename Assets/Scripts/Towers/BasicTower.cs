@@ -26,8 +26,7 @@ public class BasicTower : Tower
 
         if (target)
         {
-            BasicTowerProjectile projectile = GameObject.Instantiate(PROJECTILE_PREFAB).GetComponent<BasicTowerProjectile>();
-            projectile.Initialize(this.transform.position, target, damage);
+            GameObject.Instantiate(PROJECTILE_PREFAB);
             return true;
         }
         else
