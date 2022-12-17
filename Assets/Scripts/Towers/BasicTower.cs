@@ -26,7 +26,9 @@ public class BasicTower : Tower
 
         if (target)
         {
-            GameObject.Instantiate(PROJECTILE_PREFAB);
+            GameObject projectile = GameObject.Instantiate(PROJECTILE_PREFAB);
+            projectile.transform.position = this.transform.position;
+            projectile.transform.LookAt(target.transform.position);
             return true;
         }
         else

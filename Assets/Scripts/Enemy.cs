@@ -39,8 +39,7 @@ public class Enemy : MobileEntity
                 if (movementNodes.Count == 0)
                 {
                     // If popping pops the last node, it means we are at the end
-                    // Do something w/ GameManager or Player and decrement health or something
-                    Destroy(this.gameObject);
+                    Die();
                     Debug.Log("End reached");
                     return;
                 }
@@ -59,5 +58,11 @@ public class Enemy : MobileEntity
         //applyHorizontalFriction(friction);
     }
     
+    protected override void Die()
+    {
+        gameManager.RemoveEnemy(this);
+        Destroy(this.gameObject);
+    }
+
     public void SetNodes(Vector3[] nodes) { movementNodes = new Queue<Vector3>(nodes); }
 }
