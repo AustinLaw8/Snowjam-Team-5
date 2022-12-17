@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobileEntity : MonoBehaviour
+public class MobileEntity : HPEntity
 {
     [SerializeField] protected Transform trfm;
     [SerializeField] protected Rigidbody rb;
