@@ -57,16 +57,6 @@ public class Enemy : MobileEntity
         // This might not work properly, but walk towards next node
         addHorizontalVelocity(1,0,1,0);
     }
-
-    public void damage(int amount)
-    {
-        hp -= amount;
-        if (hp < 0)
-        {
-            gameManager.RemoveEnemy(this);
-            Destroy(this.gameObject);
-        }
-    }
-
+    
     public void SetNodes(Vector3[] nodes) { movementNodes = new Queue<Vector3>(nodes); }
 }

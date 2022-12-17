@@ -8,14 +8,6 @@ public class BasicTower : Tower
 
     private Enemy target;
 
-    protected override void Initialize()
-    {
-        range = 5f;
-        attackSpeed = .5f;
-        cost = 0;
-        damage = 4;
-    }
-
     protected override bool AttemptAttack()
     {
         switch (targettingType)

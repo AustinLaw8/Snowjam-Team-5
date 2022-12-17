@@ -24,7 +24,6 @@ public abstract class Tower : MonoBehaviour
         if (gameManager == null) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         timer = attackSpeed;
         targettingType = Target.First;
-        Initialize();
     }
 
     void OnDrawGizmosSelected()
@@ -44,9 +43,6 @@ public abstract class Tower : MonoBehaviour
             }
         }
     }
-
-    protected abstract void Initialize();
-    
 
     protected abstract bool AttemptAttack();
 
