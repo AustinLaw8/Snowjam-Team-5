@@ -5,10 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private HashSet<Enemy> currentEnemies;
-    [SerializeField] protected float waitTime;
-    [SerializeField] protected GameObject ENEMY_PREFAB;
+    [SerializeField] private float waitTime;
+    [SerializeField] private GameObject ENEMY_PREFAB;
 
-    // [SerializeField] private Enemy[] 
+    // [SerializeField] private PlayerScript player;
+    
     [SerializeField] public Vector3[] tempNodes;
     public static Vector3[] s_tempNodes;
     private Queue<int> waves;
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
         waves = new Queue<int>();
         waves.Enqueue(5);
         currentEnemies = new HashSet<Enemy>();
-        // waves.Enqueue(new Queue<Enemy>(tempNodes));
+        // if (player == null) player = GameObject.Find("Player").transform.GetChild(2).GetComponent<PlayerScript>();
     }
 
     void Update()
