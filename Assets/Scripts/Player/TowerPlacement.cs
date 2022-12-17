@@ -10,6 +10,7 @@ public class TowerPlacement : MonoBehaviour
 {
     private static float MAX_DIST = 20f;
 
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private List<GameObject> towerPrefabs;
     [SerializeField] private float rotationSpeed;
 
@@ -23,22 +24,23 @@ public class TowerPlacement : MonoBehaviour
     void Start()
     {
         index = 0;
+        if (gameManager == null) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Handles actual placement on click, and rotate on Q and E
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (ValidateTowerLocation())
-            {
-                PlaceTower();
-            }
-        }
-        
         // TODO: rotate hologram
         if (chosenTower.activeSelf)
         {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (ValidateTowerLocation())
+                {
+                    PlaceTower();
+                }
+            }
+
             if (Input.GetKey(KeyCode.Q))
             {
                 chosenTower.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
@@ -58,8 +60,11 @@ public class TowerPlacement : MonoBehaviour
     void PlaceTower()
     {
         // TODO: some shader stuff idk
-        chosenTower.GetComponent<Collider>().enabled = true;
-        chosenTower = CreateHologram();
+        if (gameManager.SpendCash(chosenTower.GetComponent<Tower>().GetCost()))
+        {
+            chosenTower.GetComponent<Collider>().enabled = true;
+            chosenTower = CreateHologram();
+        }
     }
 
     // Handles hologram 

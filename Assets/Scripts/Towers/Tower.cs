@@ -11,7 +11,7 @@ public abstract class Tower : MonoBehaviour
 {
     [SerializeField] protected float range;
     [SerializeField] protected float attackSpeed;
-    [SerializeField] protected float cost;
+    [SerializeField] protected int cost;
     [SerializeField] protected int damage;
     [SerializeField] protected GameManager gameManager;
 
@@ -124,6 +124,6 @@ public abstract class Tower : MonoBehaviour
         
     }
 
-    public float GetCost() { return cost; }
+    public int GetCost() { return cost; }
     public float GetRange() { return range; }
 }
