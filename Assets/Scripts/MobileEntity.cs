@@ -17,15 +17,16 @@ public class MobileEntity : HPEntity
         if (trfm == null) trfm = this.transform;
         if (rb == null) rb = this.gameObject.GetComponent<Rigidbody>();
 
-        InvokeRepeating("FU",0.02f,0.02f);
+        currentSlow = 1;
+        InvokeRepeating("FU", 0.02f, 0.02f);
     }
 
     protected void addHorizontalVelocity(float forwardAmount, float rightwardAmount, float forwardMax, float rightwardMax)
     {
-        forwardAmount *= velocityModifier;
-        rightwardAmount *= velocityModifier;
-        forwardMax *= velocityModifier;
-        rightwardMax *= velocityModifier;
+        forwardAmount *= velocityModifier * currentSlow;
+        rightwardAmount *= velocityModifier * currentSlow;
+        forwardMax *= velocityModifier * currentSlow;
+        rightwardMax *= velocityModifier * currentSlow;
 
         targetX = trfm.forward.x * forwardAmount + trfm.right.x * rightwardAmount; //attempted X velocity difference
         targetZ = trfm.forward.z * forwardAmount + trfm.right.z * rightwardAmount; //attempted Z velocity difference
@@ -188,52 +189,94 @@ public class MobileEntity : HPEntity
         rb.velocity = vect3;
     }
 
+    float currentSlow;
     int strongestSlowIndex;
-    float[] slowStrenghts = new float[10];
+    float[] slowStrengths = new float[10];
     int[] slowDurations = new int[10];
+
     public void ApplySlow(float strength, int duration) //0.2 = 20% slow, duration in ticks
     {
         for (int i = 0; i < 10; i++)
         {
+            if (Mathf.Abs(slowStrengths[i] - strength) < .01f)
+            {
+                if (duration > slowDurations[i])
+                {
+                    slowDurations[i] = duration;
+                }
+                return;
+            }
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+
             if (slowDurations[i] < 1)
             {
-                slowStrenghts[i] = strength;
+                slowStrengths[i] = strength;
                 slowDurations[i] = duration;
                 
-                if (slowStrenghts[strongestSlowIndex] < strength) { strongestSlowIndex = i; }
+                if (currentSlow > .99f || slowStrengths[strongestSlowIndex] < strength)
+                {
+                    UpdateStrongestSlow(i);
+                }
 
                 break;
             }
         }
     }
-
-    void FU() //short for FixedUpdate; necessary b/c subscripts dont call the fixedupdate from their superclasses
+    private void ProcessSlow()
     {
-        if (slowStrenghts[strongestSlowIndex] > 0)
+        for (int i = 0; i < 10; i++)
         {
-            for (int i = 0; i < 10; i++)
+            if (slowDurations[i] > 0)
             {
-                if (slowDurations[i] > 0)
+                slowDurations[i]--;
+
+                if (slowDurations[i] == 0)
                 {
-                    slowDurations[i]--;
-
-                    if (slowDurations[i] == 0)
+                    if (i == strongestSlowIndex)
                     {
-                        if (i == strongestSlowIndex)
+                        int j;
+                        for (j = 0; j < 10; j++)
                         {
-                            for (int j = 0; j < 10; j++)
+                            if (slowDurations[j] > 0)
                             {
-                                //if (slowDurations[j] > 0)
+                                UpdateStrongestSlow(j);
                             }
-
-                            for (int j = 0; j < 10; j++)
+                            else if (j == 9)
                             {
-                                //if (slowDurations[j] > 0 && )
+                                currentSlow = 1;
+                                return;
+                            }
+                        }
+
+                        for (; j < 10; j++)
+                        {
+                            if (slowDurations[j] > 0 && slowStrengths[j] > slowStrengths[strongestSlowIndex])
+                            {
+                                UpdateStrongestSlow(j);
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    private void UpdateStrongestSlow(int index)
+    {
+        strongestSlowIndex = index;
+        currentSlow = 1 - slowStrengths[strongestSlowIndex];
+    }
+
+    public void TakeKnockback(Vector3 knockback)
+    {
+        rb.velocity += knockback;
+    }
+
+    void FU() //short for FixedUpdate; necessary b/c subscripts dont call the fixedupdate from their superclasses
+    {
+        ProcessSlow();
     }
 }

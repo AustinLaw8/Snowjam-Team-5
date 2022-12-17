@@ -55,7 +55,8 @@ public class Enemy : MobileEntity
         this.transform.LookAt(nextNode);
         
         // This might not work properly, but walk towards next node
-        addHorizontalVelocity(1,0,1,0);
+        addHorizontalVelocity(.2f,0,.7f,0);
+        //applyHorizontalFriction(friction);
     }
     
     public void SetNodes(Vector3[] nodes) { movementNodes = new Queue<Vector3>(nodes); }
