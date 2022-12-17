@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int cash;
     [SerializeField] private int health;
     
+    [SerializeField] public TMP_Text cashText;
+
     [SerializeField] public Vector3[] tempNodes;
     public static Vector3[] s_tempNodes;
     public Transform[] goal;
@@ -45,8 +48,14 @@ public class GameManager : MonoBehaviour
         {
             EndWave();
         }
+
+        UpdateText();
     }
 
+    void UpdateText()
+    {
+        cashText.text = $"{cash}";
+    }
     public void StartNextWave()
     {
         waveInProgress = true;
