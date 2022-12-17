@@ -98,20 +98,17 @@ public class PlayerScript : MobileEntity
         }
         processHorizontalInput();
 
-        if (buildMode)
-        {
-            RaycastHit hit;
+        RaycastHit hit;
 
-            if(Physics.Raycast(this.transform.position, Camera.main.transform.forward, out hit, 20f))
-            {
-                chosenTower.SetActive(true);
-                // FIXME: Pivot point of the tower should probably be the bottom of it such that placement is easier
-                chosenTower.transform.position = hit.point;
-            }
-            else
-            {
-                chosenTower.SetActive(false);
-            }
+        if (buildMode && Physics.Raycast(this.transform.position, Camera.main.transform.forward, out hit, 20f))
+        {
+            chosenTower.SetActive(true);
+            // FIXME: Pivot point of the tower should probably be the bottom of it such that placement is smoother
+            chosenTower.transform.position = hit.point;
+        }
+        else
+        {
+            chosenTower.SetActive(false);
         }
     }
 
