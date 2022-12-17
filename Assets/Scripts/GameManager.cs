@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (currentEnemies.Count < 0)
+        if (waveInProgress && currentEnemies.Count == 0)
         {
             EndWave();
         }
