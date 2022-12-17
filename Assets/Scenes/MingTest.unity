@@ -307,6 +307,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5381231355404675914, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: fireDelay
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381231355404675914, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: maxIcicles
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381231355404675914, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: curIcicleType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6909301787255357146, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
       propertyPath: projectileIcicle
       value: 
@@ -900,7 +912,7 @@ GameObject:
   - component: {fileID: 1284461341}
   - component: {fileID: 1284461340}
   - component: {fileID: 1284461339}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

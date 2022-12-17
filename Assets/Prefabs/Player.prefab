@@ -1075,9 +1075,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 147566370934539693}
-  projectileIcicle: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+  projectileIcicle:
+  - {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+  - {fileID: 3329658044074062318, guid: 94bb967ed6856364a9df3512e2d31d27, type: 3}
+  - {fileID: 2540577077722340768, guid: d5469f044310cb64cb611023546f09ae, type: 3}
   handReference: {fileID: 147566371077948071}
-  displayIcicle: {fileID: 1356081131060986597, guid: 9c72fb689e4e7f1488cfcbee777f4251, type: 3}
+  displayIcicle:
+  - {fileID: 1356081131060986597, guid: 9c72fb689e4e7f1488cfcbee777f4251, type: 3}
+  - {fileID: 4940671863546414907, guid: 5b1661b5b13f36241ad44ccfafd76f36, type: 3}
+  - {fileID: 4860026115847205433, guid: 84cc300966e317e498abb9d7c14bd138, type: 3}
   beverages:
   - {fileID: 147566372346746494}
   - {fileID: 4941781608408383242}

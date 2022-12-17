@@ -15,13 +15,22 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] Animator anim;
 
 
-    [SerializeField] GameObject projectileIcicle;
+    [SerializeField] List<GameObject> projectileIcicle;
 
     // Icicle display 
     [SerializeField] GameObject handReference;
-    [SerializeField] GameObject displayIcicle;
+    [SerializeField] List<GameObject> displayIcicle;
     List<GameObject> icicleList;
     [SerializeField] List<GameObject> beverages;
+
+    // Ammo types
+    public enum IcicleType
+    {
+        normal = 0,
+        explosive = 1,
+        piercing = 2
+    }
+    [SerializeField] IcicleType curIcicleType = IcicleType.normal;
 
     // Ammo count
     [SerializeField] int maxIcicles = 6;
@@ -35,7 +44,7 @@ public class PlayerShooting : MonoBehaviour
     {
         curDelay = 0;
         icicleList = new List<GameObject>();
-        Reload();
+        Reload(curIcicleType);
     }
 
     // Update is called once per frame
@@ -43,14 +52,14 @@ public class PlayerShooting : MonoBehaviour
     {
         HandleAnimations();
         if (Input.GetMouseButtonDown(0))
-            Shoot();
+            Shoot(curIcicleType);
     }
 
     void HandleAnimations()
     {
         // Icicle spin
         float angleOffset = Mathf.PI * 2 / icicleList.Count;
-        float angle = Time.realtimeSinceStartup % 2f * Mathf.PI * 2f; 
+        float angle = Time.realtimeSinceStartup % 2f * Mathf.PI * 2f;
         for (int i = 0; i < icicleList.Count; i++)
         {
             icicleList[i].transform.localPosition = new Vector3(Mathf.Sin(angle + angleOffset * i) * 0.1f, 0.35f, Mathf.Cos(angle + angleOffset * i) * 0.1f);
@@ -62,7 +71,7 @@ public class PlayerShooting : MonoBehaviour
         }
     }
 
-    public void Reload()
+    public void Reload(IcicleType type = 0)
     {
         for (int i = 0; i < icicleList.Count; i++)
         {
@@ -73,39 +82,40 @@ public class PlayerShooting : MonoBehaviour
         float angleOffset = Mathf.PI * 2 / maxIcicles;
         for (int i = 0; i < maxIcicles; i++)
         {
-            icicleList.Add(Instantiate(displayIcicle, handReference.transform));
-            // icicleList[i].transform.localPosition = new Vector3(Mathf.Sin(angleOffset * i), 0, Mathf.Cos(angleOffset * i)) * 0.1f;
+            icicleList.Add(Instantiate(displayIcicle[(int)type], handReference.transform));
         }
     }
 
     // Attempts to shoot a projectile, if a cooldown is ready and ammo is available
-    public void Shoot(int type = 0)
+    public void Shoot(IcicleType type = 0)
     {
         AnimatorStateInfo info = anim.GetCurrentAnimatorStateInfo(0);
         if (curDelay > 0 || info.IsName("Reload"))
             return;
 
-        
+
         if (!(info.IsName("AttackHold") || info.IsName("AttackStart")))
             anim.Play("AttackStart");
 
         anim.SetBool("Attack", true);
         if (icicleList.Count > 0)
         {
-            Instantiate(projectileIcicle, icicleList[icicleCount - 1].transform.position, cameraController.self.camTrfm.rotation);
+            Instantiate(projectileIcicle[(int)type], icicleList[icicleCount - 1].transform.position, cameraController.self.camTrfm.rotation);
             Destroy(icicleList[icicleCount - 1]);
             icicleList.RemoveAt(icicleCount - 1);
             icicleCount--;
             curDelay = fireDelay;
-        } else
+        }
+        else
         {
             anim.Play("Reload");
-            Reload();
+            Reload(curIcicleType);
         }
     }
 
+
     public void DrinkSetActive(bool active)
     {
-        beverages[0].SetActive(active);
+        beverages[(int)curIcicleType].SetActive(active);
     }
 }

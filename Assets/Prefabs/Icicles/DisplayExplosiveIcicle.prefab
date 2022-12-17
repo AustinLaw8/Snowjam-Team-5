@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1356081131060986597, guid: 9c72fb689e4e7f1488cfcbee777f4251, type: 3}
       propertyPath: m_Name
-      value: DisplayIcicle
+      value: DisplayExplosiveIcicle
       objectReference: {fileID: 0}
     - target: {fileID: 1947274716071622480, guid: 9c72fb689e4e7f1488cfcbee777f4251, type: 3}
       propertyPath: m_RootOrder
@@ -55,5 +55,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2569474964184784399, guid: 9c72fb689e4e7f1488cfcbee777f4251, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9375e72643b908e4d842b55f778fa04d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c72fb689e4e7f1488cfcbee777f4251, type: 3}
