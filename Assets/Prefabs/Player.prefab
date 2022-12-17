@@ -2302,7 +2302,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 87
+    m_Bits: 471
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -2576,7 +2576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
-  maxHP: 0
+  maxHP: 100
   entityID: 0
   trfm: {fileID: 147566370964532918}
   rb: {fileID: 147566370964532912}
@@ -2591,7 +2591,9 @@ MonoBehaviour:
   XSensitivity: 1
   groundedFriction: 0.15
   aerialFriction: 0.01
-  icicleObj: {fileID: 0}
+  icicleObj: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+  towers:
+  - {fileID: 0}
 --- !u!1 &147566372208826865
 GameObject:
   m_ObjectHideFlags: 0

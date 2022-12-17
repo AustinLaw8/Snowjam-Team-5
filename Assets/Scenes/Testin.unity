@@ -442,7 +442,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTime: 1
   ENEMY_PREFAB: {fileID: 7366624634862130008, guid: 4b43ed080ec5e4286bdee9799cae340d, type: 3}
-  player: {fileID: 0}
   tempNodes:
   - {x: 0, y: -4.192952, z: 0}
   - {x: 4, y: -4.192952, z: 0}
@@ -655,26 +654,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 147566372071361103, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 471
-      objectReference: {fileID: 0}
-    - target: {fileID: 147566372164067172, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
-      propertyPath: towers
-      value: 
-      objectReference: {fileID: 2002468340}
-    - target: {fileID: 147566372164067172, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
-      propertyPath: icicleObj
-      value: 
-      objectReference: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
     - target: {fileID: 147566372164067172, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1035609225}
-    - target: {fileID: 147566372164067172, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
-      propertyPath: towers.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 147566372164067172, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
       propertyPath: towers.Array.data[0]
       value: 
@@ -847,6 +830,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7229135029709498224, guid: bae67d2880f2a434db25df607c374070, type: 3}
+      propertyPath: cost
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7229135029709498224, guid: bae67d2880f2a434db25df607c374070, type: 3}
       propertyPath: gameManager
       value: 

@@ -7,6 +7,7 @@ public class Enemy : MobileEntity
     private static float I_AM_HERE_THRESHHOLD = .3f;
 
     [SerializeField] protected int hp;
+    [SerializeField] protected int value;
     
     // GameManager will probably pass every enemy the nodes
     protected Queue<Vector3> movementNodes;
@@ -38,9 +39,13 @@ public class Enemy : MobileEntity
                 movementNodes.Dequeue();
                 if (movementNodes.Count == 0)
                 {
-                    // If popping pops the last node, it means we are at the end
-                    Die();
                     Debug.Log("End reached");
+
+                    // If popping pops the last node, it means we are at the end
+                    gameManager.GetPlayer().TakeDmg(1);
+
+                    gameManager.RemoveEnemy(this);
+                    Destroy(this.gameObject);
                     return;
                 }
             }
@@ -60,6 +65,7 @@ public class Enemy : MobileEntity
     
     protected override void Die()
     {
+        gameManager.IncreaseCash(value);
         gameManager.RemoveEnemy(this);
         Destroy(this.gameObject);
     }
