@@ -209,13 +209,29 @@ public class MobileEntity : HPEntity
 
     void FU() //short for FixedUpdate; necessary b/c subscripts dont call the fixedupdate from their superclasses
     {
-        if (strongestSlow > 0)
+        if (slowStrenghts[strongestSlowIndex] > 0)
         {
             for (int i = 0; i < 10; i++)
             {
                 if (slowDurations[i] > 0)
                 {
                     slowDurations[i]--;
+
+                    if (slowDurations[i] == 0)
+                    {
+                        if (i == strongestSlowIndex)
+                        {
+                            for (int j = 0; j < 10; j++)
+                            {
+                                //if (slowDurations[j] > 0)
+                            }
+
+                            for (int j = 0; j < 10; j++)
+                            {
+                                //if (slowDurations[j] > 0 && )
+                            }
+                        }
+                    }
                 }
             }
         }

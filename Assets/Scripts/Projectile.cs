@@ -8,15 +8,17 @@ public class Projectile : MonoBehaviour
     [SerializeField] GameObject destroyFX;
     [SerializeField] protected Transform trfm;
     [SerializeField] protected Rigidbody rb;
+    [SerializeField] float maxDuration;
     // Start is called before the first frame update
     protected void Start()
     {
         if (!trfm) { trfm = transform; }
+        Destroy(gameObject, maxDuration);
     }
 
     protected void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer != 6)
+        if (other.gameObject.layer == 8)
         {
             other.GetComponent<HPEntity>().TakeDmg(dmg);
         }
@@ -28,4 +30,6 @@ public class Projectile : MonoBehaviour
         if (destroyFX) { Instantiate(destroyFX, trfm.position, trfm.rotation); }
         Destroy(gameObject);
     }
+
+    
 }

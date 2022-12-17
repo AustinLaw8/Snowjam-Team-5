@@ -192,6 +192,7 @@ MonoBehaviour:
   destroyFX: {fileID: 5147277335958705927, guid: 6edf245eb2231ed4e8db48950843177f, type: 3}
   trfm: {fileID: 5384698844974537653}
   rb: {fileID: 2771641490370253181}
+  maxDuration: 5
   spd: 7
 --- !u!54 &2771641490370253181 stripped
 Rigidbody:
