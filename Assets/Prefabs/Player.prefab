@@ -1088,6 +1088,7 @@ MonoBehaviour:
   - {fileID: 147566372346746494}
   - {fileID: 4941781608408383242}
   - {fileID: 8297215908491063928}
+  curIcicleType: 0
   maxIcicles: 6
   fireDelay: 0.5
 --- !u!114 &762659854
@@ -1102,8 +1103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa71e0631ea94cba83986e7546a0dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   towerPrefabs:
   - {fileID: 7229135029709498238, guid: bae67d2880f2a434db25df607c374070, type: 3}
+  rotationSpeed: 0
 --- !u!114 &762659855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2348,7 +2351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147566372071361090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.166, z: 0.001}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
