@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Enemy : MobileEntity
 {
-    private static float I_AM_HERE_THRESHHOLD = .1f;
+    private static float I_AM_HERE_THRESHHOLD = .3f;
 
-    [SerializeField] protected float health;
+    [SerializeField] protected int hp;
+    [SerializeField] protected int value;
     
     // GameManager will probably pass every enemy the nodes
     protected Queue<Vector3> movementNodes;
+    protected GameManager gameManager;
 
     void Start()
     {
-        if (movementNodes == null || movementNodes.Count == 0)
-        {
-            Debug.LogError("Enemy instantiated with no pathing");
-            Destroy(this.gameObject);
-        }
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        movementNodes = new Queue<Vector3>(gameManager.tempNodes);
     }
 
     void FixedUpdate()
@@ -29,7 +28,6 @@ public class Enemy : MobileEntity
     void Move()
     {
         Vector3 nextNode = Vector3.zero;
-        
         while ( movementNodes.Count > 0 ) 
         {
             nextNode = movementNodes.Peek();
@@ -37,11 +35,16 @@ public class Enemy : MobileEntity
             // If we are at next node, pop it and try next
             if (Vector3.Distance(nextNode, this.transform.position) <= I_AM_HERE_THRESHHOLD)
             {
+                Debug.Log("Node reached, popping");
                 movementNodes.Dequeue();
                 if (movementNodes.Count == 0)
                 {
+                    Debug.Log("End reached");
+
                     // If popping pops the last node, it means we are at the end
-                    // Do something w/ GameManager or Player and decrement health or something
+                    gameManager.GetPlayer().TakeDmg(1);
+
+                    gameManager.RemoveEnemy(this);
                     Destroy(this.gameObject);
                     return;
                 }
@@ -53,9 +56,19 @@ public class Enemy : MobileEntity
         }
         
         // Turn towards next node if necessary
-        this.transform.LookAt(nextNode - this.transform.position);
+        this.transform.LookAt(nextNode);
         
         // This might not work properly, but walk towards next node
-        addHorizontalVelocity(1,0,1,0);
+        addHorizontalVelocity(.2f,0,.7f,0);
+        //applyHorizontalFriction(friction);
     }
+    
+    protected override void Die()
+    {
+        gameManager.IncreaseCash(value);
+        gameManager.RemoveEnemy(this);
+        Destroy(this.gameObject);
+    }
+
+    public void SetNodes(Vector3[] nodes) { movementNodes = new Queue<Vector3>(nodes); }
 }

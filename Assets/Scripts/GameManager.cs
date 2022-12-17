@@ -4,38 +4,93 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // private ArrayList<Enemy> currentEnemies;
+    private HashSet<Enemy> currentEnemies;
+    [SerializeField] private float waitTime;
+    [SerializeField] private GameObject ENEMY_PREFAB;
 
-    // private queue<queue<enemy>> waves
+    [SerializeField] private PlayerScript player;
+    [SerializeField] private int cash;
+    
+    [SerializeField] public Vector3[] tempNodes;
+    public static Vector3[] s_tempNodes;
+    private Queue<int> waves;
+
+    public bool waveInProgress;
+    public bool controllable;
 
     void Start()
     {
-        
+        controllable = true;
+        waveInProgress = false;
+        waves = new Queue<int>();
+        waves.Enqueue(5);
+        waves.Enqueue(5);
+        currentEnemies = new HashSet<Enemy>();
+        if (player == null) player = GameObject.Find("Player").transform.GetChild(2).GetComponent<PlayerScript>();
     }
 
     void Update()
     {
-        // if currentEnemies is empty
-            // end wave
-        // something about giving player money for wave end or somethi nidk
+        if (waveInProgress && currentEnemies.Count == 0)
+        {
+            EndWave();
+        }
     }
 
-    // From the way i think about it the player will call this function to start next wave
+    // Starts next wave
     public void StartNextWave()
     {
-        // queue<enemy> curwave = waves.Peek()
-        // waves.Deque()
-        // something somthing invoke an ienumerator to spawn the enemies in the wave
+        waveInProgress = true;
+        int curWave = waves.Peek();
+        waves.Dequeue();
 
+        IEnumerator spawnRoutine = SpawnWave(curWave);
+        StartCoroutine(spawnRoutine);
     }
 
     // Spawns the next enemy every x seconds
-    // IEnumerator SpawnWave(curwave)
-    // {
-            // for enemy in curwave
-            //     spawn enemy
-            //     wait x time
-    // }
+    IEnumerator SpawnWave(int curWave)
+    {
+        for (int i = 0; i < curWave; i++)
+        {
+            Enemy newEnemy = GameObject.Instantiate(ENEMY_PREFAB).GetComponent<Enemy>();
+            // newEnemy.SetNodes(tempNodes);
+            currentEnemies.Add(newEnemy);
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
 
-    // ArrayList<Enemy> GetEnemies() { return enemies; }
+    public void EndWave()
+    {
+        Debug.Log("Wave complete");
+        if (waves.Count == 0)
+        {
+            Debug.Log("No more waves, gg");
+        }
+        waveInProgress = false;
+        // TODO:
+        // Give player cash for winning
+        // Mini UI thing of "Wave X/Y"
+    }
+
+    public PlayerScript GetPlayer() { return player; } 
+
+    public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); }
+    public HashSet<Enemy> GetEnemies() { return currentEnemies; }
+
+    public int GetCash() { return cash; }
+    public void IncreaseCash(int amount) { cash += amount; }
+    
+    public bool SpendCash(int amount) {
+        if (amount > cash)
+        {
+            return false;
+        }
+        else
+        {
+            cash -= amount;
+            return true;
+        }
+    }
+
 }

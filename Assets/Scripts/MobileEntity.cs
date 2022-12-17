@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobileEntity : MonoBehaviour
+public class MobileEntity : HPEntity
 {
     [SerializeField] protected Transform trfm;
     [SerializeField] protected Rigidbody rb;
@@ -12,23 +12,21 @@ public class MobileEntity : MonoBehaviour
     float targetX, targetZ, maxX, maxZ;
     Vector3 vect3, vect2;
 
-    [SerializeField] bool disconnectedTrfms;
-
     void Awake()
     {
-        if (!disconnectedTrfms)
-        {
-            trfm = this.transform;
-            rb = this.gameObject.GetComponent<Rigidbody>();
-        }
+        if (trfm == null) trfm = this.transform;
+        if (rb == null) rb = this.gameObject.GetComponent<Rigidbody>();
+
+        currentSlow = 1;
+        InvokeRepeating("FU", 0.02f, 0.02f);
     }
 
     protected void addHorizontalVelocity(float forwardAmount, float rightwardAmount, float forwardMax, float rightwardMax)
     {
-        forwardAmount *= velocityModifier;
-        rightwardAmount *= velocityModifier;
-        forwardMax *= velocityModifier;
-        rightwardMax *= velocityModifier;
+        forwardAmount *= velocityModifier * currentSlow;
+        rightwardAmount *= velocityModifier * currentSlow;
+        forwardMax *= velocityModifier * currentSlow;
+        rightwardMax *= velocityModifier * currentSlow;
 
         targetX = trfm.forward.x * forwardAmount + trfm.right.x * rightwardAmount; //attempted X velocity difference
         targetZ = trfm.forward.z * forwardAmount + trfm.right.z * rightwardAmount; //attempted Z velocity difference
@@ -140,7 +138,7 @@ public class MobileEntity : MonoBehaviour
         rb.velocity += vect3;
     }
 
-    [SerializeField] float ratio, magnitude;
+    float ratio, magnitude;
     protected void applyHorizontalFriction(float amount)
     {
         if (Mathf.Abs(rb.velocity.x) > 0.0001f && Mathf.Abs(rb.velocity.z) > 0.0001f)
@@ -189,5 +187,96 @@ public class MobileEntity : MonoBehaviour
     public void setVelocity(Vector3 vect3)
     {
         rb.velocity = vect3;
+    }
+
+    float currentSlow;
+    int strongestSlowIndex;
+    float[] slowStrengths = new float[10];
+    int[] slowDurations = new int[10];
+
+    public void ApplySlow(float strength, int duration) //0.2 = 20% slow, duration in ticks
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (Mathf.Abs(slowStrengths[i] - strength) < .01f)
+            {
+                if (duration > slowDurations[i])
+                {
+                    slowDurations[i] = duration;
+                }
+                return;
+            }
+        }
+
+        for (int i = 0; i < 10; i++)
+        {
+
+            if (slowDurations[i] < 1)
+            {
+                slowStrengths[i] = strength;
+                slowDurations[i] = duration;
+                
+                if (currentSlow > .99f || slowStrengths[strongestSlowIndex] < strength)
+                {
+                    UpdateStrongestSlow(i);
+                }
+
+                break;
+            }
+        }
+    }
+    private void ProcessSlow()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (slowDurations[i] > 0)
+            {
+                slowDurations[i]--;
+
+                if (slowDurations[i] == 0)
+                {
+                    if (i == strongestSlowIndex)
+                    {
+                        int j;
+                        for (j = 0; j < 10; j++)
+                        {
+                            if (slowDurations[j] > 0)
+                            {
+                                UpdateStrongestSlow(j);
+                            }
+                            else if (j == 9)
+                            {
+                                currentSlow = 1;
+                                return;
+                            }
+                        }
+
+                        for (; j < 10; j++)
+                        {
+                            if (slowDurations[j] > 0 && slowStrengths[j] > slowStrengths[strongestSlowIndex])
+                            {
+                                UpdateStrongestSlow(j);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void UpdateStrongestSlow(int index)
+    {
+        strongestSlowIndex = index;
+        currentSlow = 1 - slowStrengths[strongestSlowIndex];
+    }
+
+    public void TakeKnockback(Vector3 knockback)
+    {
+        rb.velocity += knockback;
+    }
+
+    void FU() //short for FixedUpdate; necessary b/c subscripts dont call the fixedupdate from their superclasses
+    {
+        ProcessSlow();
     }
 }
