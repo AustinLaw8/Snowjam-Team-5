@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,11 +9,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float waitTime;
     [SerializeField] private GameObject ENEMY_PREFAB;
 
-    [SerializeField] private PlayerScript player;
+    [SerializeField] private GameObject player;
     [SerializeField] private int cash;
+    [SerializeField] private int health;
     
+    [SerializeField] public TMP_Text cashText;
+
     [SerializeField] public Vector3[] tempNodes;
     public static Vector3[] s_tempNodes;
+    public Transform[] goal;
     private Queue<int> waves;
 
     public bool waveInProgress;
@@ -26,23 +31,39 @@ public class GameManager : MonoBehaviour
         waves.Enqueue(5);
         waves.Enqueue(5);
         currentEnemies = new HashSet<Enemy>();
-        if (player == null) player = GameObject.Find("Player").transform.GetChild(2).GetComponent<PlayerScript>();
+        if (player == null) player = GameObject.Find("Player");
+
+        player.GetComponent<PlayerShooting>().enabled = false;
+        player.GetComponent<TowerPlacement>().enabled = true;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            StartNextWave();
+        }
+
         if (waveInProgress && currentEnemies.Count == 0)
         {
             EndWave();
         }
+
+        UpdateText();
     }
 
-    // Starts next wave
+    void UpdateText()
+    {
+        cashText.text = $"{cash}";
+    }
     public void StartNextWave()
     {
         waveInProgress = true;
         int curWave = waves.Peek();
         waves.Dequeue();
+
+        player.GetComponent<PlayerShooting>().enabled = true;
+        player.GetComponent<TowerPlacement>().enabled = false;
 
         IEnumerator spawnRoutine = SpawnWave(curWave);
         StartCoroutine(spawnRoutine);
@@ -63,6 +84,10 @@ public class GameManager : MonoBehaviour
     public void EndWave()
     {
         Debug.Log("Wave complete");
+
+        player.GetComponent<PlayerShooting>().enabled = false;
+        player.GetComponent<TowerPlacement>().enabled = true;
+
         if (waves.Count == 0)
         {
             Debug.Log("No more waves, gg");
@@ -73,7 +98,14 @@ public class GameManager : MonoBehaviour
         // Mini UI thing of "Wave X/Y"
     }
 
-    public PlayerScript GetPlayer() { return player; } 
+    public void DecreaseHealth(int amount) {
+        health -= amount;
+        if (health <= 0)
+        {
+            Debug.Log("you died, gg");
+            // Handle death
+        }
+    }
 
     public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); }
     public HashSet<Enemy> GetEnemies() { return currentEnemies; }
@@ -92,5 +124,4 @@ public class GameManager : MonoBehaviour
             return true;
         }
     }
-
 }

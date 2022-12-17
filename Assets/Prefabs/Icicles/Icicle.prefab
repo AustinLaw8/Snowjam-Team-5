@@ -26,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223686641381494947}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 1.2, z: 0.6}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 5384698844974537653}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8086641261294827917
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -41,7 +41,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223686641381494947}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -5495902117074765545, guid: 016c1e9c946e74ea7a4cf907ad6483c7, type: 3}
 --- !u!23 &3040572234688232321
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f603d8e9755f3204eaf65100a055618f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -94,9 +94,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.49999994
-  m_Height: 1.9999998
-  m_Direction: 1
+  m_Radius: 0.0101757115
+  m_Height: 0.060825624
+  m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &7516832393515887893
 PrefabInstance:
@@ -111,15 +111,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2516223760005084832, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2516223760005084832, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2516223760005084832, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2516223760005084832, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -161,6 +161,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2516223760005084832, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7441431768473192131, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
       propertyPath: m_Name
       value: Icicle
@@ -192,8 +196,10 @@ MonoBehaviour:
   destroyFX: {fileID: 5147277335958705927, guid: 6edf245eb2231ed4e8db48950843177f, type: 3}
   trfm: {fileID: 5384698844974537653}
   rb: {fileID: 2771641490370253181}
-  maxDuration: 5
   spd: 7
+  maxDuration: 5
+  icicleType: 0
+  explosionRadius: 0.5
 --- !u!54 &2771641490370253181 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5631749668752407656, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
