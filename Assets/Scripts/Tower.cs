@@ -46,9 +46,6 @@ public class Tower : MonoBehaviour
         target.damage(damage);
     }
 
-    // TODO: look into different targeting styles
-
-    /*
     Enemy GetClosestEnemy()
     {
         float minDist = float.PositiveInfinity;
@@ -68,7 +65,6 @@ public class Tower : MonoBehaviour
         }
         return target;
     }
-    */
 
     float GetCost() { return cost; }
     float GetRange() { return range; }

@@ -27,8 +27,10 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        // if currentEnemies is empty
-            // end wave
+        if (currentEnemies.Count < 0)
+        {
+            EndWave();
+        }
         // something about giving player money for wave end or somethi nidk
     }
 
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
 
     public void EndWave()
     {
+        Debug.Log("Wave complete");
         if (waves.Count == 0)
         {
             // Win Game
