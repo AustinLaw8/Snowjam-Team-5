@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     // [SerializeField] private Enemy[] 
     [SerializeField] public Vector3[] tempNodes;
+    public static Vector3[] s_tempNodes;
     private Queue<int> waves;
 
     public bool waveInProgress;
