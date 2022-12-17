@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // private ArrayList<Enemy> currentEnemies;
+    private List<Enemy> currentEnemies;
+    [SerializeField] protected float waitTime;
+    [SerializeField] protected GameObject ENEMY_PREFAB;
 
-    // private queue<queue<enemy>> waves
+    // [SerializeField] private Enemy[] 
+    [SerializeField] public Vector3[] tempNodes;
+    private Queue<int> waves;
 
     void Start()
     {
-        
+        waves = new Queue<int>();
+        waves.Enqueue(5);
+        // waves.Enqueue(new Queue<Enemy>(tempNodes));
     }
 
     void Update()
@@ -20,22 +26,30 @@ public class GameManager : MonoBehaviour
         // something about giving player money for wave end or somethi nidk
     }
 
-    // From the way i think about it the player will call this function to start next wave
+    // Starts next wave
     public void StartNextWave()
     {
-        // queue<enemy> curwave = waves.Peek()
-        // waves.Deque()
-        // something somthing invoke an ienumerator to spawn the enemies in the wave
+        if (waves.Count == 0)
+        {
+            // Win Game
+        }
+        int curWave = waves.Peek();
+        waves.Dequeue();
 
+        IEnumerator spawnRoutine = SpawnWave(curWave);
+        StartCoroutine(spawnRoutine);
     }
 
     // Spawns the next enemy every x seconds
-    // IEnumerator SpawnWave(curwave)
-    // {
-            // for enemy in curwave
-            //     spawn enemy
-            //     wait x time
-    // }
+    IEnumerator SpawnWave(int curWave)
+    {
+        for (int i = 0; i < curWave; i++)
+        {
+            GameObject newEnemy = GameObject.Instantiate(ENEMY_PREFAB);
+            newEnemy.GetComponent<Enemy>().SetNodes(tempNodes);
+            yield return new WaitForSeconds(waitTime);
+        }
+    }
 
     // ArrayList<Enemy> GetEnemies() { return enemies; }
 }
