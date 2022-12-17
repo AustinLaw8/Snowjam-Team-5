@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerScript : MobileEntity
 {
+    [SerializeField] GameManager gameManager;
+    
     [SerializeField] float YVel;
 
     [SerializeField] float accl, baseSpd, jumpPwr, XSensitivity;
@@ -41,6 +43,10 @@ public class PlayerScript : MobileEntity
             fwdAccl = accl;
         }
 
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            gameManager.StartNextWave();
+        }
 
         rotation.y = Input.GetAxis("Mouse X") * XSensitivity;
         trfm.localEulerAngles += rotation;

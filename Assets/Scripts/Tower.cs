@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
     [SerializeField] protected float range;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected float cost;
+    [SerializeField] protected GameManager gameManager;
 
     private float timer;
 
@@ -34,11 +35,11 @@ public class Tower : MonoBehaviour
     // }
 
     // TODO: look into different targeting styles
-    // Enemy GetClosestEnemy()
-    // {
+    Enemy GetClosestEnemy()
+    {
             // TODO: I'm gonna assume theres a list of enemies somewhere so we can do targeting.
-            // do something useful, probably
-    // }
+            do something useful, probably
+    }
 
     float GetCost() { return cost; }
     float GetRange() { return range; }
