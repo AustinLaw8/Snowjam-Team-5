@@ -28,6 +28,7 @@ public class PlayerScript : MobileEntity
 
     void Start()
     {
+        HP = maxHP;
         fwdAccl = accl;
         fwdSpd = baseSpd;
         chosenTower = towers[0];
