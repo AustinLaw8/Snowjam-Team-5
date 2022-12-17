@@ -2582,8 +2582,6 @@ MonoBehaviour:
   m_onGroundScript: {fileID: 147566370587971767}
   velocityModifier: 1
   friction: 0.15
-  ratio: 0
-  magnitude: 0
   gameManager: {fileID: 0}
   YVel: 0
   accl: 0.5
@@ -2592,6 +2590,7 @@ MonoBehaviour:
   XSensitivity: 1
   groundedFriction: 0.15
   aerialFriction: 0.01
+  icicleObj: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
 --- !u!1 &147566372208826865
 GameObject:
   m_ObjectHideFlags: 0

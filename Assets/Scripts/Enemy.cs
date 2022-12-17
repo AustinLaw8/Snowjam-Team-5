@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MobileEntity
 {
-    private static float I_AM_HERE_THRESHHOLD = .1f;
+    private static float I_AM_HERE_THRESHHOLD = .3f;
 
     [SerializeField] protected int hp;
     

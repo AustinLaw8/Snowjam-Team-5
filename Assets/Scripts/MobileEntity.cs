@@ -16,6 +16,8 @@ public class MobileEntity : HPEntity
     {
         if (trfm == null) trfm = this.transform;
         if (rb == null) rb = this.gameObject.GetComponent<Rigidbody>();
+
+        InvokeRepeating("FU",0.02f,0.02f);
     }
 
     protected void addHorizontalVelocity(float forwardAmount, float rightwardAmount, float forwardMax, float rightwardMax)
@@ -135,7 +137,7 @@ public class MobileEntity : HPEntity
         rb.velocity += vect3;
     }
 
-    [SerializeField] float ratio, magnitude;
+    float ratio, magnitude;
     protected void applyHorizontalFriction(float amount)
     {
         if (Mathf.Abs(rb.velocity.x) > 0.0001f && Mathf.Abs(rb.velocity.z) > 0.0001f)
@@ -184,5 +186,38 @@ public class MobileEntity : HPEntity
     public void setVelocity(Vector3 vect3)
     {
         rb.velocity = vect3;
+    }
+
+    int strongestSlowIndex;
+    float[] slowStrenghts = new float[10];
+    int[] slowDurations = new int[10];
+    public void ApplySlow(float strength, int duration) //0.2 = 20% slow, duration in ticks
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            if (slowDurations[i] < 1)
+            {
+                slowStrenghts[i] = strength;
+                slowDurations[i] = duration;
+                
+                if (slowStrenghts[strongestSlowIndex] < strength) { strongestSlowIndex = i; }
+
+                break;
+            }
+        }
+    }
+
+    void FU() //short for FixedUpdate; necessary b/c subscripts dont call the fixedupdate from their superclasses
+    {
+        if (strongestSlow > 0)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                if (slowDurations[i] > 0)
+                {
+                    slowDurations[i]--;
+                }
+            }
+        }
     }
 }

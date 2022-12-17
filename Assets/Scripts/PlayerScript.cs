@@ -13,6 +13,9 @@ public class PlayerScript : MobileEntity
     [SerializeField] float groundedFriction, aerialFriction;
     Vector3 rotation = Vector3.zero;
 
+    [SerializeField] GameObject icicleObj;
+    int iciclesLeft;
+
     bool compareOnGround;
 
     void Start()
@@ -46,6 +49,11 @@ public class PlayerScript : MobileEntity
         if (Input.GetKeyDown(KeyCode.K))
         {
             gameManager.StartNextWave();
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(icicleObj, cameraController.self.camTrfm.position + cameraController.self.camTrfm.forward, cameraController.self.camTrfm.rotation);
         }
 
         rotation.y = Input.GetAxis("Mouse X") * XSensitivity;
