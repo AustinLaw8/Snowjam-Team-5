@@ -914,7 +914,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &147566370934539693
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -931,7 +931,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &147566370950136952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,8 +2576,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 0
-  maxHP: 0
-  entityID: 0
+  maxHP: 100
+  entityID: 1
   trfm: {fileID: 147566370964532918}
   rb: {fileID: 147566370964532912}
   m_onGroundScript: {fileID: 147566370587971767}
@@ -2591,7 +2591,8 @@ MonoBehaviour:
   XSensitivity: 1
   groundedFriction: 0.15
   aerialFriction: 0.01
-  icicleObj: {fileID: 0}
+  icicleObj: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+  towers: []
 --- !u!1 &147566372208826865
 GameObject:
   m_ObjectHideFlags: 0
