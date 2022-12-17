@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private List<Enemy> currentEnemies;
+    private HashSet<Enemy> currentEnemies;
     [SerializeField] protected float waitTime;
     [SerializeField] protected GameObject ENEMY_PREFAB;
 
@@ -12,10 +12,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Vector3[] tempNodes;
     private Queue<int> waves;
 
+    public bool waveInProgress;
+    public bool controllable;
+
     void Start()
     {
+        controllable = true;
+        waveInProgress = false;
         waves = new Queue<int>();
         waves.Enqueue(5);
+        currentEnemies = new HashSet<Enemy>();
         // waves.Enqueue(new Queue<Enemy>(tempNodes));
     }
 
@@ -29,10 +35,7 @@ public class GameManager : MonoBehaviour
     // Starts next wave
     public void StartNextWave()
     {
-        if (waves.Count == 0)
-        {
-            // Win Game
-        }
+        waveInProgress = true;
         int curWave = waves.Peek();
         waves.Dequeue();
 
@@ -45,11 +48,22 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < curWave; i++)
         {
-            GameObject newEnemy = GameObject.Instantiate(ENEMY_PREFAB);
-            newEnemy.GetComponent<Enemy>().SetNodes(tempNodes);
+            Enemy newEnemy = GameObject.Instantiate(ENEMY_PREFAB).GetComponent<Enemy>();
+            // newEnemy.SetNodes(tempNodes);
+            currentEnemies.Add(newEnemy);
             yield return new WaitForSeconds(waitTime);
         }
     }
 
-    // ArrayList<Enemy> GetEnemies() { return enemies; }
+    public void EndWave()
+    {
+        if (waves.Count == 0)
+        {
+            // Win Game
+        }
+        waveInProgress = false;
+    }
+
+    public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); }
+    public HashSet<Enemy> GetEnemies() { return currentEnemies; }
 }

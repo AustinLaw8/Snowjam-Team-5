@@ -10,10 +10,12 @@ public class Enemy : MobileEntity
     
     // GameManager will probably pass every enemy the nodes
     protected Queue<Vector3> movementNodes;
+    protected GameManager gameManager;
 
     void Start()
     {
-        movementNodes = new Queue<Vector3>(GameObject.Find("GameManager").GetComponent<GameManager>().tempNodes);
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        movementNodes = new Queue<Vector3>(gameManager.tempNodes);
     }
 
     void FixedUpdate()
@@ -61,6 +63,7 @@ public class Enemy : MobileEntity
         hp -= amount;
         if (hp < 0)
         {
+            gameManager.RemoveEnemy(this);
             Destroy(this.gameObject);
         }
     }

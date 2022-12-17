@@ -190,8 +190,8 @@ MonoBehaviour:
   trfm: {fileID: 7366624634862130018}
   rb: {fileID: 7366624634862130014}
   m_onGroundScript: {fileID: 7366624634531258595}
-  velocityModifier: 1
+  velocityModifier: 2
   friction: 0.15
   ratio: 0
   magnitude: 0
-  hp: 0
+  hp: 10
