@@ -35,11 +35,14 @@ public class Tower : MonoBehaviour
     // }
 
     // TODO: look into different targeting styles
+
+    /*
     Enemy GetClosestEnemy()
     {
             // TODO: I'm gonna assume theres a list of enemies somewhere so we can do targeting.
             do something useful, probably
     }
+    */
 
     float GetCost() { return cost; }
     float GetRange() { return range; }
