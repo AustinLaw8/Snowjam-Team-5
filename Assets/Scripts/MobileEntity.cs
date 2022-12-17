@@ -141,7 +141,7 @@ public class MobileEntity : HPEntity
     float ratio, magnitude;
     protected void applyHorizontalFriction(float amount)
     {
-        if (Mathf.Abs(rb.velocity.x) > 0.0001f && Mathf.Abs(rb.velocity.z) > 0.0001f)
+        if (true || (Mathf.Abs(rb.velocity.x) > 0.0001f && Mathf.Abs(rb.velocity.z) > 0.0001f))
         {
             vect2.x = rb.velocity.x;
             vect2.y = rb.velocity.z;

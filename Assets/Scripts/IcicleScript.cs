@@ -25,7 +25,7 @@ public class IcicleScript : MonoBehaviour
             MobileEntity mobileEntity = other.GetComponent<MobileEntity>();
             mobileEntity.TakeDmg(dmg);
             mobileEntity.ApplySlow(.5f,100);
-            mobileEntity.TakeKnockback(trfm.forward * 2);
+            mobileEntity.TakeKnockback(trfm.forward * 4);
         }
         DestroySelf();
     }
