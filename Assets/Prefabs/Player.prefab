@@ -1019,6 +1019,8 @@ GameObject:
   - component: {fileID: 147566370964532918}
   - component: {fileID: 147566370964532912}
   - component: {fileID: 5381231355404675914}
+  - component: {fileID: 762659854}
+  - component: {fileID: 762659855}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1082,6 +1084,48 @@ MonoBehaviour:
   - {fileID: 8297215908491063928}
   maxIcicles: 6
   fireDelay: 0.5
+--- !u!114 &762659854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147566370964532919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa71e0631ea94cba83986e7546a0dee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerPrefabs:
+  - {fileID: 7229135029709498238, guid: bae67d2880f2a434db25df607c374070, type: 3}
+--- !u!114 &762659855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147566370964532919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 302e44d65a1515347a451ffc25b6f1c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 0
+  maxHP: 100
+  entityID: 0
+  trfm: {fileID: 147566370964532918}
+  rb: {fileID: 147566370964532912}
+  m_onGroundScript: {fileID: 147566370587971767}
+  velocityModifier: 1
+  friction: 0.15
+  YVel: 0
+  accl: 0.5
+  baseSpd: 1.1
+  jumpPwr: 3
+  XSensitivity: 1
+  groundedFriction: 0.15
+  aerialFriction: 0.01
+  icicleObj: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
 --- !u!1 &147566370966388899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,7 +2556,6 @@ GameObject:
   - component: {fileID: 147566372164067169}
   - component: {fileID: 147566372164067174}
   - component: {fileID: 147566372164067175}
-  - component: {fileID: 147566372164067172}
   m_Layer: 0
   m_Name: Hitbox (terrain)
   m_TagString: Untagged
@@ -2599,37 +2642,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &147566372164067172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147566372164067194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 302e44d65a1515347a451ffc25b6f1c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 0
-  maxHP: 100
-  entityID: 0
-  trfm: {fileID: 147566370964532918}
-  rb: {fileID: 147566370964532912}
-  m_onGroundScript: {fileID: 147566370587971767}
-  velocityModifier: 1
-  friction: 0.15
-  gameManager: {fileID: 0}
-  YVel: 0
-  accl: 0.5
-  baseSpd: 1.1
-  jumpPwr: 3
-  XSensitivity: 1
-  groundedFriction: 0.15
-  aerialFriction: 0.01
-  icicleObj: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
-  towers:
-  - {fileID: 0}
 --- !u!1 &147566372208826865
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class Enemy : MobileEntity
                     Debug.Log("End reached");
 
                     // If popping pops the last node, it means we are at the end
-                    gameManager.GetPlayer().TakeDmg(1);
+                    gameManager.DecreaseHealth(1);
 
                     gameManager.RemoveEnemy(this);
                     Destroy(this.gameObject);

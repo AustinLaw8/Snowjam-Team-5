@@ -39,7 +39,7 @@ public abstract class Tower : MonoBehaviour
             timer -= Time.fixedDeltaTime;
             if (timer < 0 && AttemptAttack())
             {
-                    timer = attackSpeed;
+                timer = attackSpeed;
             }
         }
     }

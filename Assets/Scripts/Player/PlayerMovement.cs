@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : MobileEntity
+public class PlayerMovement : MobileEntity
 {
-    [SerializeField] private GameManager gameManager;
-
     /* Movement fields */
     [SerializeField] private float YVel;
     [SerializeField] private float accl, baseSpd, jumpPwr, XSensitivity;
@@ -18,28 +16,17 @@ public class PlayerScript : MobileEntity
     [SerializeField] private GameObject icicleObj;
     private int iciclesLeft;
 
-    /* Tower placing fields */
-    [SerializeField] private GameObject[] towers;
-    private GameObject chosenTower;
-
     bool compareOnGround;
-
-    bool buildMode;
 
     void Start()
     {
-        HP = maxHP;
         fwdAccl = accl;
         fwdSpd = baseSpd;
-        chosenTower = towers[0];
-        chosenTower.GetComponent<Collider>().enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        buildMode = !gameManager.waveInProgress;
-
         YVel = rb.velocity.y;
 
         if (Input.GetKeyDown(KeyCode.Space) && m_onGroundScript.isOnGround())
@@ -56,24 +43,6 @@ public class PlayerScript : MobileEntity
         {
             fwdSpd = baseSpd;
             fwdAccl = accl;
-        }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            gameManager.StartNextWave();
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (buildMode)
-            {
-                Debug.LogWarning("Tower placement not implemented");
-                // TODO: something something set the tower down
-            }
-            else
-            {
-                Instantiate(icicleObj, cameraController.self.camTrfm.position + cameraController.self.camTrfm.forward, cameraController.self.camTrfm.rotation);
-            }
         }
 
         rotation.y = Input.GetAxis("Mouse X") * XSensitivity;
@@ -98,25 +67,10 @@ public class PlayerScript : MobileEntity
             }
         }
         processHorizontalInput();
-
-        RaycastHit hit;
-
-        if (buildMode && Physics.Raycast(this.transform.position, Camera.main.transform.forward, out hit, 20f))
-        {
-            chosenTower.SetActive(true);
-            // FIXME: Pivot point of the tower should probably be the bottom of it such that placement is smoother
-            chosenTower.transform.position = hit.point;
-        }
-        else
-        {
-            chosenTower.SetActive(false);
-        }
     }
 
-    bool noInputFlag;
     void processHorizontalInput()
     {
-        noInputFlag = false;
         if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
         {
             if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
@@ -156,10 +110,6 @@ public class PlayerScript : MobileEntity
             else if (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A))
             {
                 addHorizontalVelocity(0, accl, 0, baseSpd);
-            }
-            else
-            {
-                noInputFlag = true;
             }
         }
     }
