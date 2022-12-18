@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public Transform[] goal;
     private Queue<int> waves;
 
-    private GameState gameState;
+    [SerializeField] private GameState gameState;
     public bool paused;
 
     private int currentWave;
