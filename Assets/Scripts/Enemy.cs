@@ -21,8 +21,6 @@ public class Enemy : MobileEntity
 
     [SerializeField] float speed, acceleration;
 
-    [SerializeField] GameObject currentNodeObj;
-
     void Start()
     {
         gameManager = GameManager.self;
@@ -34,7 +32,6 @@ public class Enemy : MobileEntity
         {
             nodeCheckDelay = 25;
             UpdateNode();
-            currentNodeObj = gameManager.nodes[currentTargetNode].gameObject;
         }
         else
         {
@@ -52,6 +49,15 @@ public class Enemy : MobileEntity
         if (Vector3.Distance(trfm.position, gameManager.nodes[currentTargetNode].position) < I_AM_HERE_THRESHHOLD)
         {
             currentTargetNode++;
+            if (currentTargetNode == gameManager.nodes.Length)
+            {
+                gameManager.DecreaseHealth(1);
+
+                Debug.Log("MADE IT BRO");
+
+                Destroy(this.gameObject);
+                return;
+            }
         }
     }
 
