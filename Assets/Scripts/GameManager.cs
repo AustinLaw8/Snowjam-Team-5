@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int health;
     
     [SerializeField] public TMP_Text cashText;
+    [SerializeField] public TMP_Text hpText;
 
     [SerializeField] public Vector3[] tempNodes;
     public static Vector3[] s_tempNodes;
@@ -55,7 +56,9 @@ public class GameManager : MonoBehaviour
     void UpdateText()
     {
         cashText.text = $"{cash}";
+        hpText.text = $"{health}";
     }
+
     public void StartNextWave()
     {
         waveInProgress = true;
