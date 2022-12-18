@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text cashText;
     [SerializeField] private TMP_Text hpText;
+    [SerializeField] private TMP_Text waveCountText;
+    [SerializeField] private TMP_Text enemyCountText;
 
     public Transform[] goal;
     private Queue<int> waves;
@@ -31,6 +33,8 @@ public class GameManager : MonoBehaviour
     public bool paused;
 
     private int currentWave;
+    private int totalWaves;
+    private int enemiesLeft;
 
     public enum EnemyType {water, cave, flying }
 
@@ -44,6 +48,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentWave = 0;
+        enemiesLeft = enemyWaves[0].enemies.Length;
+        totalWaves = enemyWaves.Length;
         currentEnemies = new HashSet<Enemy>();
         if (player == null) player = GameObject.Find("Player");
         if (cashText == null) cashText = GameObject.Find("CashText").GetComponent<TMP_Text>();
@@ -75,6 +81,8 @@ public class GameManager : MonoBehaviour
     {
         cashText.text = $"{cash}";
         hpText.text = $"{health}";
+        waveCountText.text = $"Wave {currentWave+1}/{totalWaves}";
+        enemyCountText.text = $"{enemiesLeft} enemies remaining";
     }
 
     public void StartNextWave()
@@ -91,6 +99,7 @@ public class GameManager : MonoBehaviour
     // Spawns the next enemy every `waitTime` seconds
     IEnumerator SpawnWave(int curWave)
     {
+        enemiesLeft = enemyWaves[currentWave].enemies.Length;
         for (int i = 0; i < enemyWaves[curWave].enemies.Length; i++)
         {
             if (enemyWaves[curWave].enemies[i] == EnemyType.water)
@@ -136,7 +145,7 @@ public class GameManager : MonoBehaviour
 
     public GameState GetGameState() { return gameState; }
 
-    public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); }
+    public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); enemiesLeft--; }
     public HashSet<Enemy> GetEnemies() { return currentEnemies; }
 
     public int GetCash() { return cash; }
