@@ -15,11 +15,12 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private List<GameObject> towerPrefabs;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float scrollRate=.1f;
 
     [SerializeField] private TMP_Text UI_Text;
 
     // Indexes into towerPrefab
-    private int index;
+    public float index;
 
     // Clone of current towerPrefab[index]
     private GameObject chosenTower;
@@ -36,6 +37,7 @@ public class TowerPlacement : MonoBehaviour
     // Handles actual placement on click, and rotate on Q and E
     void Update()
     {
+        GetSelectedTower();
         if (chosenTower.activeSelf)
         {
             if (Input.GetMouseButtonDown(0))
@@ -56,6 +58,78 @@ public class TowerPlacement : MonoBehaviour
             }
         }
         UpdateText();
+    }
+
+    // Handles hologram 
+    void FixedUpdate()
+    {
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(this.transform.position, Camera.main.transform.forward, out hit, MAX_DIST))
+        {
+            // If hovering over a tower, display range for that tower
+            if (hit.transform.gameObject.layer == 7)
+            {
+                Debug.Log("Hovering over other tower");
+                AttachRangeIndicator(hit.transform);
+                chosenTower.SetActive(false);
+            }
+            else
+            {
+                // Place hologram, allow rotation
+                AttachRangeIndicator(chosenTower.transform);
+                chosenTower.transform.position = hit.point + offset;
+                chosenTower.SetActive(true);
+            }
+        }
+        else
+        {
+            chosenTower.SetActive(false);
+        }
+    }
+
+    void OnEnable()
+    {
+        chosenTower = CreateHologram();
+    }
+
+    void OnDisable()
+    {
+        UI_Text.enabled = false;
+        Destroy(chosenTower);
+    }
+
+    void GetSelectedTower()
+    {
+        int last = Mathf.RoundToInt(index);
+
+        // Get index by scroll wheel
+        if(Mathf.Abs(Input.mouseScrollDelta.y) != 0)
+        {
+            index += Input.mouseScrollDelta.y * scrollRate;
+            Debug.Log(index);
+        }
+
+        // Get index by key press
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            index = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            index = 1;
+        }
+
+        int tempInd = (Mathf.RoundToInt(index) + towerPrefabs.Count) % towerPrefabs.Count;
+        if (last != tempInd)
+        {
+            Debug.Log($"Switching tower from {last} to {index}");
+            index = tempInd;
+            GameObject temp = chosenTower;
+            chosenTower = CreateHologram();
+            Destroy(temp);
+        }
     }
 
     void UpdateText()
@@ -80,58 +154,28 @@ public class TowerPlacement : MonoBehaviour
         }
     }
 
-    // Handles hologram 
-    void FixedUpdate()
-    {
-        RaycastHit hit;
-
-        if (Physics.Raycast(this.transform.position, Camera.main.transform.forward, out hit, MAX_DIST))
-        {
-            // If hovering over a tower, do something else (allow for selling or something, but we figure that out later)
-            if (hit.transform.gameObject.layer == 7)
-            {
-                // TODO: Create range indicator
-                Debug.Log("Hovering over other tower");
-                // hit.transform.GetChild(0).activeSelf = true;
-                chosenTower.SetActive(false);
-            }
-            else
-            {
-                // Place hologram, allow rotation
-                chosenTower.SetActive(true);
-
-                chosenTower.transform.position = hit.point + offset;
-            }
-        }
-        else
-        {
-            chosenTower.SetActive(false);
-        }
-    }
-
-
     GameObject CreateHologram()
     {
-        GameObject hologram = GameObject.Instantiate(towerPrefabs[index]);
+        // Creates a hologram by cloning a Prefab,
+        GameObject hologram = GameObject.Instantiate(towerPrefabs[Mathf.RoundToInt(index)]);
         offset = new Vector3(0f, hologram.GetComponent<Collider>().bounds.extents.y, 0f);
+
+        // Attaching to it the range indicator
         hologram.GetComponent<Collider>().enabled = false;
         rangeIndicator = GameObject.Instantiate(SPHERE);
-        float temp = hologram.GetComponent<Tower>().GetRange() * 2f;
-        rangeIndicator.transform.localScale = new Vector3(temp, temp, temp);
-        rangeIndicator.transform.SetParent(hologram.transform);
-        UI_Text.enabled = true;
+        AttachRangeIndicator(hologram.transform);
+
+        // And enabling the UI text
         UI_Text.text = $"Cost: {hologram.GetComponent<Tower>().GetCost()}";
+        hologram.SetActive(false);
         return hologram;
     }
 
-    void OnEnable()
+    void AttachRangeIndicator(Transform transform)
     {
-        chosenTower = CreateHologram();
-    }
-
-    void OnDisable()
-    {
-        UI_Text.enabled = false;
-        Destroy(chosenTower);
+        float temp = transform.GetComponent<Tower>().GetRange() * 2f;
+        rangeIndicator.transform.localScale = new Vector3(temp, temp, temp);
+        rangeIndicator.transform.localPosition = Vector3.zero;
+        rangeIndicator.transform.SetParent(transform);
     }
 }

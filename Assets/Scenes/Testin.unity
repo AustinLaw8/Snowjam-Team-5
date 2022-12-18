@@ -756,15 +756,35 @@ PrefabInstance:
     - target: {fileID: 762659854, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
       propertyPath: SPHERE
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2977782287459804882, guid: 9a7ff10109bae4c098d71dae774c0e68, type: 3}
     - target: {fileID: 762659854, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
       propertyPath: UI_Text
       value: 
       objectReference: {fileID: 401384613}
     - target: {fileID: 762659854, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: scrollRate
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 762659854, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1035609225}
+    - target: {fileID: 762659854, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
       propertyPath: rotationSpeed
       value: 72
       objectReference: {fileID: 0}
+    - target: {fileID: 762659854, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: towerPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 762659854, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: towerPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7229135029709498238, guid: bae67d2880f2a434db25df607c374070, type: 3}
+    - target: {fileID: 762659854, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: towerPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 6756344395716503792, guid: 78919896a7267496297c09cfa4dec56f, type: 3}
     - target: {fileID: 147566370964532918, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
       propertyPath: m_RootOrder
       value: 1
