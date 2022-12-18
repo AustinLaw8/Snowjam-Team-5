@@ -22,7 +22,7 @@ public class Shatter : MonoBehaviour
 
     IEnumerator Cleanup()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 }
