@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public TMP_Text cashText;
     [SerializeField] public TMP_Text hpText;
 
+    [SerializeField] public Vector3[] tempNodes;
+    public static Vector3[] s_tempNodes;
     public Transform[] goal;
     private Queue<int> waves;
 
@@ -103,6 +105,7 @@ public class GameManager : MonoBehaviour
             }
 
             Enemy newEnemy = GameObject.Instantiate(nextEnemy, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
+            // newEnemy.SetNodes(tempNodes);
             currentEnemies.Add(newEnemy);
             yield return new WaitForSeconds(waitTime);
         }
