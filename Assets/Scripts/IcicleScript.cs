@@ -6,10 +6,12 @@ public class IcicleScript : MonoBehaviour
 {
     [SerializeField] protected int dmg;
     [SerializeField] GameObject destroyFX;
-    [SerializeField] protected Transform trfm;
+    [SerializeField] protected Transform trfm, fxTrfm;
     [SerializeField] protected Rigidbody rb;
     [SerializeField] float spd, maxDuration;
     [SerializeField] PlayerShooting.IcicleType icicleType = 0;
+
+    [SerializeField] ParticleSystem[] ptclSys;
 
     [Tooltip("For explosive icicle only. Defines explosion radius")]
     [SerializeField] float explosionRadius = 0.5f;
@@ -65,6 +67,12 @@ public class IcicleScript : MonoBehaviour
     protected void DestroySelf()
     {
         if (destroyFX) { Instantiate(destroyFX, trfm.position, trfm.rotation); }
+
+        fxTrfm.parent = null;
+        Destroy(fxTrfm.gameObject, 2);
+        ptclSys[0].Stop();
+        ptclSys[1].Stop();
+
         Destroy(gameObject);
     }
 }
