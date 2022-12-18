@@ -8,7 +8,6 @@ public class Enemy : MobileEntity
 {
     private static float I_AM_HERE_THRESHHOLD = .3f;
 
-    [SerializeField] protected int hp;
     [SerializeField] protected int value;
     
     // GameManager will probably pass every enemy the nodes
@@ -28,23 +27,11 @@ public class Enemy : MobileEntity
     void FixedUpdate()
     {
         CheckGoal();
-        // Move();
-        string outstr = "";
-        foreach(Vector3 coords in agent.path.corners)
-        {
-            outstr += coords.ToString();
-        }
-        Debug.Log(outstr);
     }
 
     public float GetPathDistance()
     {
         return agent.remainingDistance;
-    }
-
-    public void TakeDmg(int dmg)
-    {
-
     }
 
     void CheckGoal()
@@ -54,7 +41,6 @@ public class Enemy : MobileEntity
             curGoal++;
             if (curGoal >= gameManager.goal.Length)
             {
-                Debug.Log("End reached");
 
                 // If popping pops the last node, it means we are at the end
                 gameManager.DecreaseHealth(1);
@@ -68,8 +54,8 @@ public class Enemy : MobileEntity
             }
         }
     } 
-    
-    protected void Die()
+
+    protected override void Die()
     {
         gameManager.IncreaseCash(value);
         gameManager.RemoveEnemy(this);
