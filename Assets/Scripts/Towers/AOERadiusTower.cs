@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AOERadiusTower : Tower
 {
+    [SerializeField] private int damage;
+    
     protected override bool AttemptAttack()
     {
         List<Enemy> targets = GetAllEnemiesInRange();

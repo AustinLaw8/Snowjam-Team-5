@@ -8,11 +8,10 @@ public class Howitzer : MountableTower
     [SerializeField] Transform support;
     [SerializeField] GameObject bullet;
 
-    [SerializeField] float fireDelay = 8f;
     [SerializeField] float shootForce = 5f;
     float curDelay;
     Animator anim;
-    // Start is called before the first frame update
+    
     void Start()
     {
         curDelay = 0;
@@ -31,6 +30,7 @@ public class Howitzer : MountableTower
 
         if (curDelay > 0)
             curDelay -= Time.deltaTime;
+        
     }
 
     public override void Shoot()
@@ -40,5 +40,6 @@ public class Howitzer : MountableTower
         GameObject shell = Instantiate(bullet, barrel.position + barrel.forward * 2f, barrel.rotation);
         shell.GetComponent<HowitzerShell>().ApplyForce(shootForce);
         anim.Play("Fire");
+        curDelay = attackSpeed;
     }
 }

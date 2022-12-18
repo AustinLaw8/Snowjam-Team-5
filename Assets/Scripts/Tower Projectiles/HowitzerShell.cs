@@ -6,6 +6,8 @@ public class HowitzerShell : MonoBehaviour
 {
     // public float speed = 2f;  // Must be set by spawner
     Rigidbody rb;
+    int damage;
+
     // Start is called before the first frame update
     void Start()
     {

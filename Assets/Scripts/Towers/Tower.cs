@@ -12,7 +12,6 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] protected float range;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected int cost;
-    [SerializeField] protected int damage;
     [SerializeField] protected GameManager gameManager;
 
     [SerializeField] protected Target targettingType;
@@ -32,11 +31,11 @@ public abstract class Tower : MonoBehaviour
         Gizmos.DrawWireSphere(this.transform.position, range);
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (gameManager.waveInProgress && gameManager.controllable)
         {
-            timer -= Time.fixedDeltaTime;
+            timer -= Time.deltaTime;
             if (timer < 0 && AttemptAttack())
             {
                 timer = attackSpeed;
