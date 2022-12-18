@@ -17,20 +17,20 @@ public class GameManager : MonoBehaviour
     GameObject nextEnemy;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private int cash;
     [SerializeField] private int health;
 
-    [SerializeField] public TMP_Text cashText;
-    [SerializeField] public TMP_Text hpText;
+    [SerializeField] private TMP_Text cashText;
+    [SerializeField] private TMP_Text hpText;
 
     public Transform[] goal;
     private Queue<int> waves;
 
     private GameState gameState;
+    public bool paused;
 
-    public bool controllable;
-
-    int currentWave;
+    private int currentWave;
 
     public enum EnemyType {water, cave, flying }
 
@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        controllable = true;
         currentWave = 0;
         currentEnemies = new HashSet<Enemy>();
         if (player == null) player = GameObject.Find("Player");
@@ -54,6 +53,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (Time.timeScale == 1) Pause();
+            else Unpause();
+        }
         if (gameState == GameState.Building && Input.GetKeyDown(KeyCode.K))
         {
             StartNextWave();
@@ -149,5 +153,19 @@ public class GameManager : MonoBehaviour
             cash -= amount;
             return true;
         }
+    }
+
+    public void Pause()
+    {
+        Time.timeScale = 0;
+        pauseCanvas.SetActive(true);
+        paused = true;
+    }
+
+    public void Unpause()
+    {
+        Time.timeScale = 1;
+        pauseCanvas.SetActive(false);
+        paused = false;
     }
 }

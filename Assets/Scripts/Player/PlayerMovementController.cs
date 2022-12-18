@@ -57,32 +57,44 @@ public class PlayerMovementController : MonoBehaviour
             }
         }
 
-        switch(currentState)
+        if (gameManager.paused)
         {
-            case MoveState.Moving:
-                movement.enabled = true;
-                skating.enabled = false;
-                mounting.enabled = false;
-                cam.enabled = true;
-                shooting.enabled = gameManager.GetGameState() == GameState.Defending;
-                building.enabled = gameManager.GetGameState() == GameState.Building;
-                break;
-            case MoveState.Skating:
-                movement.enabled = false;
-                skating.enabled = true;
-                mounting.enabled = false;
-                cam.enabled = true;
-                shooting.enabled = gameManager.GetGameState() == GameState.Defending;
-                building.enabled = gameManager.GetGameState() == GameState.Building;
-                break;
-            case MoveState.Mounting:
-                movement.enabled = false;
-                skating.enabled = false;
-                mounting.enabled = true;
-                cam.enabled = false;
-                shooting.enabled = false;
-                building.enabled = false;
-                break;
+            movement.enabled = false;
+            skating.enabled = false;
+            mounting.enabled = false;
+            cam.enabled = false;
+            shooting.enabled = false;
+            building.enabled = false;
+        }
+        else
+        {
+            switch(currentState)
+            {
+                case MoveState.Moving:
+                    movement.enabled = true;
+                    skating.enabled = false;
+                    mounting.enabled = false;
+                    cam.enabled = true;
+                    shooting.enabled = gameManager.GetGameState() == GameState.Defending;
+                    building.enabled = gameManager.GetGameState() == GameState.Building;
+                    break;
+                case MoveState.Skating:
+                    movement.enabled = false;
+                    skating.enabled = true;
+                    mounting.enabled = false;
+                    cam.enabled = true;
+                    shooting.enabled = gameManager.GetGameState() == GameState.Defending;
+                    building.enabled = gameManager.GetGameState() == GameState.Building;
+                    break;
+                case MoveState.Mounting:
+                    movement.enabled = false;
+                    skating.enabled = false;
+                    mounting.enabled = true;
+                    cam.enabled = false;
+                    shooting.enabled = false;
+                    building.enabled = false;
+                    break;
+            }
         }
     }
 

@@ -33,7 +33,7 @@ public abstract class Tower : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.GetGameState() == GameState.Defending && gameManager.controllable)
+        if (gameManager.GetGameState() == GameState.Defending)
         {
             timer -= Time.deltaTime;
             if (timer < 0 && AttemptAttack())
@@ -112,7 +112,7 @@ public abstract class Tower : MonoBehaviour
 
         foreach(Enemy enemy in currentEnemies)
         {
-            float dist = Vector3.Distance(enemy.transform.position, this.transform.position);
+            float dist = enemy.GetPathDistance();
             if (dist <= range && dist < minRemainingDist)
             {
                 minRemainingDist = dist;
