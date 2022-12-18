@@ -95,7 +95,7 @@ public class Enemy : MobileEntity
         
         // This might not work properly, but walk towards next node
         addHorizontalVelocity(.2f,0,.7f,0);
-        //applyHorizontalFriction(friction);
+        applyHorizontalFriction(friction);
     }
     
     protected override void Die()

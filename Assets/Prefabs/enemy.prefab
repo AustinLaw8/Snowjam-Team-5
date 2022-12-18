@@ -194,6 +194,6 @@ MonoBehaviour:
   rb: {fileID: 7366624634862130014}
   m_onGroundScript: {fileID: 7366624634531258595}
   velocityModifier: 2
-  friction: 0.15
+  friction: 0.2
   hp: 10
   value: 1
