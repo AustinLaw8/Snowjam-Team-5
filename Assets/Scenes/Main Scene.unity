@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -202,6 +202,14 @@ PrefabInstance:
     - target: {fileID: 147566370964532919, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581921085667160428, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581921085667160428, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
+      propertyPath: skatingSpeedUpModifier
+      value: 0.03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a947f8ca599ae4fa7c0b63f2177cee, type: 3}
