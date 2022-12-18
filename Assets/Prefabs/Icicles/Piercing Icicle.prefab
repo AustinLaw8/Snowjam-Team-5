@@ -11,6 +11,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piercing Icicle
       objectReference: {fileID: 0}
+    - target: {fileID: 1995355172080846422, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567425452097107429, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597071003504781360, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: m_Time
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597071003504781360, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: m_Parameters.colorGradient.ctime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597071003504781360, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.a
+      value: 0.67058825
+      objectReference: {fileID: 0}
+    - target: {fileID: 2597071003504781360, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.44210553
+      objectReference: {fileID: 0}
     - target: {fileID: 3040572234688232321, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -62,6 +86,10 @@ PrefabInstance:
     - target: {fileID: 6904813251244335813, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
       propertyPath: icicleType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698129087755584004, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}

@@ -6,10 +6,12 @@ public class IcicleScript : MonoBehaviour
 {
     [SerializeField] protected int dmg;
     [SerializeField] GameObject destroyFX;
-    [SerializeField] protected Transform trfm;
+    [SerializeField] protected Transform trfm, fxTrfm;
     [SerializeField] protected Rigidbody rb;
     [SerializeField] float spd, maxDuration;
     [SerializeField] PlayerShooting.IcicleType icicleType = 0;
+
+    [SerializeField] ParticleSystem[] ptclSys;
 
     [Tooltip("For explosive icicle only. Defines explosion radius")]
     [SerializeField] float explosionRadius = 0.5f;
@@ -27,6 +29,8 @@ public class IcicleScript : MonoBehaviour
         switch (icicleType)
         {
             case PlayerShooting.IcicleType.normal:
+                if (other.gameObject.layer == 9)
+                    break;
                 if (other.gameObject.layer == 8)
                 {
                     MobileEntity mobileEntity = other.GetComponent<MobileEntity>();
@@ -37,6 +41,8 @@ public class IcicleScript : MonoBehaviour
                 DestroySelf();
                 break;
             case PlayerShooting.IcicleType.explosive:
+                if (other.gameObject.layer == 9)
+                    break;
                 foreach (Collider hit in Physics.OverlapSphere(gameObject.transform.position, explosionRadius, 1 << 8)) {
                     Debug.Log(hit);
                     MobileEntity mobileEntity = hit.gameObject.GetComponent<MobileEntity>();
@@ -47,6 +53,8 @@ public class IcicleScript : MonoBehaviour
                 DestroySelf();
                 break;
             case PlayerShooting.IcicleType.piercing:
+                if (other.gameObject.layer == 9)
+                    break;
                 if (other.gameObject.layer == 8)  // Enemy layer
                 {
                     MobileEntity mobileEntity = other.GetComponent<MobileEntity>();
@@ -65,6 +73,12 @@ public class IcicleScript : MonoBehaviour
     protected void DestroySelf()
     {
         if (destroyFX) { Instantiate(destroyFX, trfm.position, trfm.rotation); }
+
+        fxTrfm.parent = null;
+        Destroy(fxTrfm.gameObject, 2);
+        ptclSys[0].Stop();
+        ptclSys[1].Stop();
+
         Destroy(gameObject);
     }
 }
