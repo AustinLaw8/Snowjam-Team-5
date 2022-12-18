@@ -13,15 +13,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7229135029709498227, guid: bae67d2880f2a434db25df607c374070, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7229135029709498227, guid: bae67d2880f2a434db25df607c374070, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7229135029709498227, guid: bae67d2880f2a434db25df607c374070, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7229135029709498227, guid: bae67d2880f2a434db25df607c374070, type: 3}
       propertyPath: m_LocalRotation.w
@@ -78,6 +78,6 @@ MonoBehaviour:
   range: 3
   attackSpeed: 1
   cost: 15
-  damage: 70
   gameManager: {fileID: 0}
   targettingType: 0
+  damage: 70

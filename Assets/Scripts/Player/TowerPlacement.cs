@@ -158,7 +158,8 @@ public class TowerPlacement : MonoBehaviour
     {
         // Creates a hologram by cloning a Prefab,
         GameObject hologram = GameObject.Instantiate(towerPrefabs[Mathf.RoundToInt(index)]);
-        offset = new Vector3(0f, hologram.GetComponent<Collider>().bounds.extents.y, 0f);
+
+        offset = new Vector3(0f, -hologram.GetComponent<Collider>().bounds.min.y, 0f);
 
         // Attaching to it the range indicator
         hologram.GetComponent<Collider>().enabled = false;

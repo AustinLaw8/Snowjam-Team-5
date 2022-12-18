@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
+    [SerializeField] public GameManager gameManager;
     [SerializeField] public cameraController cam;
     enum MoveState { Moving, Skating, Mounting};
     PlayerMovement movement;
     PlayerSkating skating;
     PlayerShooting shooting;
-    // Mounting script
     PlayerMounting mounting;
+
+    TowerPlacement building;
     public MountableTower inRangeTower;
 
     [SerializeField] MoveState currentState;
@@ -23,6 +25,8 @@ public class PlayerMovementController : MonoBehaviour
         skating = GetComponent<PlayerSkating>();
         mounting = GetComponent<PlayerMounting>();
         shooting = GetComponent<PlayerShooting>();
+        building = GetComponent<TowerPlacement>();
+        if (gameManager == null) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -60,14 +64,16 @@ public class PlayerMovementController : MonoBehaviour
                 skating.enabled = false;
                 mounting.enabled = false;
                 cam.enabled = true;
-                shooting.enabled = true;
+                shooting.enabled = gameManager.GetGameState() == GameState.Defending;
+                building.enabled = gameManager.GetGameState() == GameState.Building;
                 break;
             case MoveState.Skating:
                 movement.enabled = false;
                 skating.enabled = true;
                 mounting.enabled = false;
                 cam.enabled = true;
-                shooting.enabled = true;
+                shooting.enabled = gameManager.GetGameState() == GameState.Defending;
+                building.enabled = gameManager.GetGameState() == GameState.Building;
                 break;
             case MoveState.Mounting:
                 movement.enabled = false;
@@ -75,6 +81,7 @@ public class PlayerMovementController : MonoBehaviour
                 mounting.enabled = true;
                 cam.enabled = false;
                 shooting.enabled = false;
+                building.enabled = false;
                 break;
         }
     }

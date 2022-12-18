@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum GameState
+{
+    Building, Defending,
+}
+
 public class GameManager : MonoBehaviour
 {
     private HashSet<Enemy> currentEnemies;
@@ -22,7 +27,8 @@ public class GameManager : MonoBehaviour
     public Transform[] goal;
     private Queue<int> waves;
 
-    public bool waveInProgress;
+    private GameState gameState;
+
     public bool controllable;
 
     int currentWave;
@@ -30,35 +36,31 @@ public class GameManager : MonoBehaviour
     public enum EnemyType {water, cave, flying }
 
     [System.Serializable]
-    public struct Fdsa
+    public struct EnemyWaves
     {
         [SerializeField] public EnemyType[] enemies;
     }
-    [SerializeField] Fdsa[] enemyWaves;
+    [SerializeField] EnemyWaves[] enemyWaves;
 
     void Start()
     {
         controllable = true;
-        waveInProgress = false;
-        waves = new Queue<int>();
-        waves.Enqueue(5);
-        waves.Enqueue(5);
+        currentWave = 0;
         currentEnemies = new HashSet<Enemy>();
         if (player == null) player = GameObject.Find("Player");
         if (cashText == null) cashText = GameObject.Find("CashText").GetComponent<TMP_Text>();
         if (hpText == null) hpText = GameObject.Find("HPText").GetComponent<TMP_Text>();
-        player.GetComponent<PlayerShooting>().enabled = false;
-        player.GetComponent<TowerPlacement>().enabled = true;
+        gameState = GameState.Building;
     }
 
     void Update()
     {
-        if (!waveInProgress && Input.GetKeyDown(KeyCode.K))
+        if (gameState == GameState.Building && Input.GetKeyDown(KeyCode.K))
         {
             StartNextWave();
         }
 
-        if (waveInProgress && currentEnemies.Count == 0)
+        if (gameState == GameState.Defending && currentEnemies.Count == 0)
         {
             EndWave();
         }
@@ -74,13 +76,8 @@ public class GameManager : MonoBehaviour
 
     public void StartNextWave()
     {
-        if (waves.Count == 0) return;
-        waveInProgress = true;
-        //int curWave = waves.Peek();
-        //waves.Dequeue();
-
-        player.GetComponent<PlayerShooting>().enabled = true;
-        player.GetComponent<TowerPlacement>().enabled = false;
+        if (currentWave == enemyWaves.Length) return;
+        gameState = GameState.Defending;
 
         IEnumerator spawnRoutine = SpawnWave(currentWave);
         currentWave++;
@@ -88,7 +85,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(spawnRoutine);
     }
 
-    // Spawns the next enemy every x seconds
+    // Spawns the next enemy every `waitTime` seconds
     IEnumerator SpawnWave(int curWave)
     {
         for (int i = 0; i < enemyWaves[curWave].enemies.Length; i++)
@@ -116,15 +113,11 @@ public class GameManager : MonoBehaviour
     public void EndWave()
     {
         Debug.Log("Wave complete");
-
-        player.GetComponent<PlayerShooting>().enabled = false;
-        player.GetComponent<TowerPlacement>().enabled = true;
-
-        if (waves.Count == 0)
+        if (currentWave == enemyWaves.Length)
         {
             Debug.Log("No more waves, gg");
         }
-        waveInProgress = false;
+        gameState = GameState.Building;
         // TODO:
         // Give player cash for winning
         // Mini UI thing of "Wave X/Y"
@@ -139,13 +132,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public GameState GetGameState() { return gameState; }
+
     public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); }
     public HashSet<Enemy> GetEnemies() { return currentEnemies; }
 
     public int GetCash() { return cash; }
     public void IncreaseCash(int amount) { cash += amount; }
     
-    public bool SpendCash(int amount) {
+    public bool SpendCash(int amount)
+    {
         if (amount > cash)
         {
             return false;

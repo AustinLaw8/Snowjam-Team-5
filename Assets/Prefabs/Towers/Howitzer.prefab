@@ -421,8 +421,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9188022518044375755}
   - component: {fileID: 8681446061616694956}
-  - component: {fileID: 7410508507667313531}
   - component: {fileID: 8243880004064504608}
+  - component: {fileID: 6627076623004835666}
   m_Layer: 7
   m_Name: Howitzer
   m_TagString: Untagged
@@ -438,7 +438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8415461202077114481}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -3.08, y: 0.3, z: 1.480922}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -460,27 +460,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73de4ecbf9cfbf64daa5dda48c6966a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 0
+  attackSpeed: 8
+  cost: 20
+  gameManager: {fileID: 0}
+  targettingType: 0
   xaxis: 0
   yaxis: 30
   camRef: {fileID: 2620101225954743773}
   barrel: {fileID: 1225491394424942431}
   support: {fileID: 9188022518044375755}
   bullet: {fileID: 2223932350493873919, guid: cc16d02e3064b3d4db3c4eb43a22088a, type: 3}
-  fireDelay: 8
   shootForce: 20
---- !u!135 &7410508507667313531
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8415461202077114481}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.85
-  m_Center: {x: 0, y: 0, z: 1}
 --- !u!95 &8243880004064504608
 Animator:
   serializedVersion: 5
@@ -501,3 +492,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!65 &6627076623004835666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8415461202077114481}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5.5, z: 4.5}
+  m_Center: {x: 0, y: 8, z: 2}
