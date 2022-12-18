@@ -70,10 +70,10 @@ GameObject:
   - component: {fileID: 7366624634862130018}
   - component: {fileID: 7366624634862130013}
   - component: {fileID: 7366624634862130012}
-  - component: {fileID: 7366624634862130015}
   - component: {fileID: 7366624634862130014}
   - component: {fileID: 7366624634862130009}
   - component: {fileID: 1724712259395902653}
+  - component: {fileID: 8378230103137830249}
   m_Layer: 8
   m_Name: enemy
   m_TagString: Untagged
@@ -147,19 +147,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7366624634862130015
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7366624634862130008}
-  m_Material: {fileID: 13400000, guid: ae3f7594098c3ad40ab46836be666eeb, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7366624634862130014
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -212,3 +199,17 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!136 &8378230103137830249
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7366624634862130008}
+  m_Material: {fileID: 13400000, guid: ae3f7594098c3ad40ab46836be666eeb, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6034588
+  m_Height: 1.0535079
+  m_Direction: 1
+  m_Center: {x: -0.018703043, y: 0.026753843, z: -0.036596306}
