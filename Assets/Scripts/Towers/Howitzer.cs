@@ -11,6 +11,8 @@ public class Howitzer : MountableTower
     [SerializeField] float shootForce = 5f;
     float curDelay;
     Animator anim;
+
+    [SerializeField] ParticleSystem[] ptclFX;
     
     void Start()
     {
@@ -41,5 +43,17 @@ public class Howitzer : MountableTower
         shell.GetComponent<HowitzerShell>().ApplyForce(shootForce);
         anim.Play("Fire");
         curDelay = attackSpeed;
+
+        for (int i = 0; i < 3; i++)
+        {
+            ptclFX[i].Play();
+        }
+        StartCoroutine(stopExhaustFX());
+    }
+
+    IEnumerator stopExhaustFX()
+    {
+        yield return new WaitForSeconds(8);
+        ptclFX[2].Stop();
     }
 }

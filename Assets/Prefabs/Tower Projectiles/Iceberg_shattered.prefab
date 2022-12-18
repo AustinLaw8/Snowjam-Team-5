@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5953563234361628236}
   - component: {fileID: 491575449428327999}
   - component: {fileID: 2096260732872613148}
+  - component: {fileID: 804579757424877402}
   m_Layer: 10
   m_Name: Iceberg_cell.010
   m_TagString: Untagged
@@ -112,9 +113,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 8866000979114458060, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &804579757424877402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491575449428327996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 5618897446689272398}
 --- !u!1 &770539555836746038
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +142,7 @@ GameObject:
   - component: {fileID: 8165962391584090124}
   - component: {fileID: 770539555836746033}
   - component: {fileID: 5377526842172942355}
+  - component: {fileID: 6859545156642408735}
   m_Layer: 10
   m_Name: Iceberg_cell.015
   m_TagString: Untagged
@@ -227,9 +242,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6366190828750884735, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &6859545156642408735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770539555836746038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 4332195923803680473}
 --- !u!1 &1285301508748384392
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +271,7 @@ GameObject:
   - component: {fileID: 7627988061575970035}
   - component: {fileID: 1285301508748384395}
   - component: {fileID: 3836239953979724494}
+  - component: {fileID: 6247077183865670383}
   m_Layer: 10
   m_Name: Iceberg_cell.014
   m_TagString: Untagged
@@ -342,9 +371,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1740481798611828274, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &6247077183865670383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285301508748384392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 4678872135646638035}
 --- !u!1 &1709851966263591722
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,6 +400,7 @@ GameObject:
   - component: {fileID: 5724434759173468650}
   - component: {fileID: 1709851966263591717}
   - component: {fileID: 2659901359837424842}
+  - component: {fileID: 3240857099690401248}
   m_Layer: 10
   m_Name: Iceberg_cell.005
   m_TagString: Untagged
@@ -457,9 +500,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6073883045731733274, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &3240857099690401248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709851966263591722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 7621729380800604822}
 --- !u!1 &1750891587212560506
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd5ac8fdc4ee4147aa7414b21ce1613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 100
+  explosionForce: 400
 --- !u!54 &1750891587212560501
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -556,6 +612,7 @@ GameObject:
   - component: {fileID: 976505559247730213}
   - component: {fileID: 976505559247730212}
   - component: {fileID: 1594826969140973279}
+  - component: {fileID: 8471425890460301817}
   m_Layer: 10
   m_Name: Iceberg_cell.007
   m_TagString: Untagged
@@ -655,9 +712,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5634524883659633257, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &8471425890460301817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2592958898524280080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 1921345195561544888}
 --- !u!1 &3222162658553873152
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,6 +741,7 @@ GameObject:
   - component: {fileID: 5913144558392868972}
   - component: {fileID: 1658559762464668969}
   - component: {fileID: 7812643455013139014}
+  - component: {fileID: 5497889037533317940}
   m_Layer: 10
   m_Name: Iceberg_cell.011
   m_TagString: Untagged
@@ -770,9 +841,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3458413590407280667, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &5497889037533317940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222162658553873152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 3086472356645620950}
 --- !u!1 &3625568500251080261
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +870,7 @@ GameObject:
   - component: {fileID: 6653038737483091522}
   - component: {fileID: 1745591566685493506}
   - component: {fileID: 5176442011990724765}
+  - component: {fileID: 1451066513426656776}
   m_Layer: 10
   m_Name: Iceberg_cell.002
   m_TagString: Untagged
@@ -885,9 +970,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8380621074266082855, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &1451066513426656776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625568500251080261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 6929506545194759385}
 --- !u!1 &3709200487323333149
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +999,7 @@ GameObject:
   - component: {fileID: 6982654409297158937}
   - component: {fileID: 3709200487323333148}
   - component: {fileID: 1793537951965710807}
+  - component: {fileID: 4293870801423894707}
   m_Layer: 10
   m_Name: Iceberg_cell.003
   m_TagString: Untagged
@@ -1000,9 +1099,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2547571713855416919, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &4293870801423894707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709200487323333149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 5674389810314798152}
 --- !u!1 &3816752703408270853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1016,6 +1128,7 @@ GameObject:
   - component: {fileID: 4684359161146475767}
   - component: {fileID: 1872450697089388938}
   - component: {fileID: 2444770155678047073}
+  - component: {fileID: 6542660436914659068}
   m_Layer: 10
   m_Name: Iceberg_cell
   m_TagString: Untagged
@@ -1115,9 +1228,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3265037190814081443, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &6542660436914659068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816752703408270853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 1872450697089388939}
 --- !u!1 &3842590666822870736
 GameObject:
   m_ObjectHideFlags: 0
@@ -1131,6 +1257,7 @@ GameObject:
   - component: {fileID: 3185862916187996124}
   - component: {fileID: 2134941000844308984}
   - component: {fileID: 8886667579800325083}
+  - component: {fileID: 8732904212159810452}
   m_Layer: 10
   m_Name: Iceberg_cell.001
   m_TagString: Untagged
@@ -1230,9 +1357,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -7225501900140116584, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &8732904212159810452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842590666822870736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 2134941000844308985}
 --- !u!1 &4465539202702022354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,6 +1386,7 @@ GameObject:
   - component: {fileID: 7958251074412743049}
   - component: {fileID: 994024098056927626}
   - component: {fileID: 7735460455019982807}
+  - component: {fileID: 5786456235665732480}
   m_Layer: 10
   m_Name: Iceberg_cell.020
   m_TagString: Untagged
@@ -1345,9 +1486,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6777069876541410209, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &5786456235665732480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465539202702022354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 994024098056927627}
 --- !u!1 &4614072924253622749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,6 +1515,7 @@ GameObject:
   - component: {fileID: 3706524418534193980}
   - component: {fileID: 694469606367211782}
   - component: {fileID: 1229994945493870511}
+  - component: {fileID: 5983198734926840731}
   m_Layer: 10
   m_Name: Iceberg_cell.018
   m_TagString: Untagged
@@ -1460,9 +1615,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -625578857338566007, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &5983198734926840731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614072924253622749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 83190036037187648}
 --- !u!1 &4722580721314797212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1476,6 +1644,7 @@ GameObject:
   - component: {fileID: 8282807083089613775}
   - component: {fileID: 5441106422710615625}
   - component: {fileID: 4028273431361295820}
+  - component: {fileID: 2399590205170844522}
   m_Layer: 10
   m_Name: Iceberg_cell.008
   m_TagString: Untagged
@@ -1575,9 +1744,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4400617816807759331, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &2399590205170844522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4722580721314797212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 5441106422710615630}
 --- !u!1 &5154969692538543142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1773,7 @@ GameObject:
   - component: {fileID: 6867689384880770811}
   - component: {fileID: 1999018699048350210}
   - component: {fileID: 3524276695615451620}
+  - component: {fileID: 8430157117535470815}
   m_Layer: 10
   m_Name: Iceberg_cell.019
   m_TagString: Untagged
@@ -1690,9 +1873,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 457895605910795241, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &8430157117535470815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154969692538543142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 5817307508726056197}
 --- !u!1 &5366291168329138039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,6 +1902,7 @@ GameObject:
   - component: {fileID: 5791128858621625394}
   - component: {fileID: 5366291168329138038}
   - component: {fileID: 7077318344928534254}
+  - component: {fileID: 57107970206564713}
   m_Layer: 10
   m_Name: Iceberg_cell.012
   m_TagString: Untagged
@@ -1805,9 +2002,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4408075039306525503, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &57107970206564713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5366291168329138039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 6254327333899088671}
 --- !u!1 &5918931428455006871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1821,6 +2031,7 @@ GameObject:
   - component: {fileID: 6756259779460942090}
   - component: {fileID: 131971605846046886}
   - component: {fileID: 5720140189298790583}
+  - component: {fileID: 590490066528949848}
   m_Layer: 10
   m_Name: Iceberg_cell.009
   m_TagString: Untagged
@@ -1920,9 +2131,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -610937982527442816, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &590490066528949848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5918931428455006871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 5495781004084067508}
 --- !u!1 &6043423831775301480
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,6 +2160,7 @@ GameObject:
   - component: {fileID: 4135754118019446612}
   - component: {fileID: 1694793931235669548}
   - component: {fileID: 3670241570137286395}
+  - component: {fileID: 8876496449060627966}
   m_Layer: 10
   m_Name: Iceberg_cell.004
   m_TagString: Untagged
@@ -2035,9 +2260,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2228945153484173174, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &8876496449060627966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043423831775301480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 1694793931235669549}
 --- !u!1 &7530877891628610906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,6 +2289,7 @@ GameObject:
   - component: {fileID: 7549135638573208404}
   - component: {fileID: 3583535466003164199}
   - component: {fileID: 3514971578163400178}
+  - component: {fileID: 4036601373682029517}
   m_Layer: 10
   m_Name: Iceberg_cell.016
   m_TagString: Untagged
@@ -2150,9 +2389,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1057449908665179920, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &4036601373682029517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7530877891628610906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 7081677639385181531}
 --- !u!1 &8052452822495096504
 GameObject:
   m_ObjectHideFlags: 0
@@ -2166,6 +2418,7 @@ GameObject:
   - component: {fileID: 6825400758232807793}
   - component: {fileID: 5490439264903978218}
   - component: {fileID: 1989600881760911042}
+  - component: {fileID: 6450650749561211137}
   m_Layer: 10
   m_Name: Iceberg_cell.013
   m_TagString: Untagged
@@ -2265,9 +2518,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3040570429161291475, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &6450650749561211137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052452822495096504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 9180805784716605778}
 --- !u!1 &8358232966060486841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,6 +2547,7 @@ GameObject:
   - component: {fileID: 3140986379241942796}
   - component: {fileID: 3140986379241942799}
   - component: {fileID: 7069830726125074256}
+  - component: {fileID: 307123871112881003}
   m_Layer: 10
   m_Name: Iceberg_cell.006
   m_TagString: Untagged
@@ -2380,9 +2647,22 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1748141306197834585, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &307123871112881003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8358232966060486841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 8130362664343701486}
 --- !u!1 &8932985280760465162
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,6 +2676,7 @@ GameObject:
   - component: {fileID: 8126220016892735639}
   - component: {fileID: 3902903953052346017}
   - component: {fileID: 3777318671678637567}
+  - component: {fileID: 5923687366296331758}
   m_Layer: 10
   m_Name: Iceberg_cell.017
   m_TagString: Untagged
@@ -2495,6 +2776,19 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4587114029800605330, guid: b004f9030789ec1468c5bdc139ac73d3, type: 3}
+--- !u!114 &5923687366296331758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8932985280760465162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f5f8a7692f2fa446a837e76ac080a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trfm: {fileID: 5428953497540376910}
