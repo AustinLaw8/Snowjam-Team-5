@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 ///     Handles hologram of towers,
@@ -13,6 +14,8 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private List<GameObject> towerPrefabs;
     [SerializeField] private float rotationSpeed;
+
+    [SerializeField] private TMP_Text UI_Text;
 
     // Indexes into towerPrefab
     private int index;
@@ -49,7 +52,14 @@ public class TowerPlacement : MonoBehaviour
             {
                 chosenTower.transform.Rotate(0f, -rotationSpeed * Time.deltaTime, 0f);
             }
+
         }
+        UpdateText();
+    }
+
+    void UpdateText()
+    {
+        UI_Text.enabled = chosenTower.activeSelf;
     }
 
     bool ValidateTowerLocation()
@@ -98,6 +108,8 @@ public class TowerPlacement : MonoBehaviour
         GameObject hologram = GameObject.Instantiate(towerPrefabs[index]);
         offset = new Vector3(0f, hologram.GetComponent<Collider>().bounds.extents.y, 0f);
         hologram.GetComponent<Collider>().enabled = false;
+        UI_Text.enabled = true;
+        UI_Text.text = $"Cost: {hologram.GetComponent<Tower>().GetCost()}";
         return hologram;
     }
 
