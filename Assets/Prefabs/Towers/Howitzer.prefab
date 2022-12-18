@@ -403,7 +403,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -10214,7 +10214,7 @@ MonoBehaviour:
   barrel: {fileID: 1225491394424942431}
   support: {fileID: 9188022518044375755}
   bullet: {fileID: 2223932350493873919, guid: cc16d02e3064b3d4db3c4eb43a22088a, type: 3}
-  shootForce: 20
+  shootForce: 30
   ptclFX:
   - {fileID: 7722511767983188459}
   - {fileID: 1009111525583239097}
@@ -10358,7 +10358,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
