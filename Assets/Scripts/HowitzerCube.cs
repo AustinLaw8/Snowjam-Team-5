@@ -20,7 +20,7 @@ public class HowitzerCube : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Instantiate()
+        Instantiate(iceExplosion, trfm.position, trfm.rotation);
         fxTrfm.parent = null;
         Destroy(fxTrfm.gameObject, 2);
     }
