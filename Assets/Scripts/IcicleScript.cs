@@ -29,6 +29,8 @@ public class IcicleScript : MonoBehaviour
         switch (icicleType)
         {
             case PlayerShooting.IcicleType.normal:
+                if (other.gameObject.layer == 9)
+                    break;
                 if (other.gameObject.layer == 8)
                 {
                     MobileEntity mobileEntity = other.GetComponent<MobileEntity>();
@@ -39,6 +41,8 @@ public class IcicleScript : MonoBehaviour
                 DestroySelf();
                 break;
             case PlayerShooting.IcicleType.explosive:
+                if (other.gameObject.layer == 9)
+                    break;
                 foreach (Collider hit in Physics.OverlapSphere(gameObject.transform.position, explosionRadius, 1 << 8)) {
                     Debug.Log(hit);
                     MobileEntity mobileEntity = hit.gameObject.GetComponent<MobileEntity>();
@@ -49,6 +53,8 @@ public class IcicleScript : MonoBehaviour
                 DestroySelf();
                 break;
             case PlayerShooting.IcicleType.piercing:
+                if (other.gameObject.layer == 9)
+                    break;
                 if (other.gameObject.layer == 8)  // Enemy layer
                 {
                     MobileEntity mobileEntity = other.GetComponent<MobileEntity>();
