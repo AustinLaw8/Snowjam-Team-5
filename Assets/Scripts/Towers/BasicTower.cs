@@ -5,6 +5,8 @@ using UnityEngine;
 public class BasicTower : Tower
 {
     [SerializeField] private GameObject PROJECTILE_PREFAB;
+    [SerializeField] Transform gun;
+    [SerializeField] Transform spawnpoint;
 
     private Enemy target;
 
@@ -27,8 +29,9 @@ public class BasicTower : Tower
         if (target)
         {
             GameObject projectile = GameObject.Instantiate(PROJECTILE_PREFAB);
-            projectile.transform.position = this.transform.position;
+            projectile.transform.position = spawnpoint.position;
             projectile.transform.LookAt(target.transform.position);
+            gun.transform.LookAt(target.transform.position);
             return true;
         }
         else
