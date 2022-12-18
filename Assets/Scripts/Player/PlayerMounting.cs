@@ -51,7 +51,7 @@ public class PlayerMounting : MonoBehaviour
             curTower.xaxis += horiRot;
             curTower.yaxis -= vertRot;
             MoveCamera();
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 curTower.Shoot();
             }
