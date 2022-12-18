@@ -10,6 +10,7 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] Transform spawnPoint;
     private HashSet<Enemy> currentEnemies;
     [SerializeField] private float waitTime;
     [SerializeField] private GameObject[] ENEMY_PREFABS;
@@ -103,7 +104,7 @@ public class GameManager : MonoBehaviour
                 //nextEnemy = ENEMY_PREFABS[2];
             }
 
-            Enemy newEnemy = GameObject.Instantiate(nextEnemy).GetComponent<Enemy>();
+            Enemy newEnemy = GameObject.Instantiate(nextEnemy, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
             // newEnemy.SetNodes(tempNodes);
             currentEnemies.Add(newEnemy);
             yield return new WaitForSeconds(waitTime);

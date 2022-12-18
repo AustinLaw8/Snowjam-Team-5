@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Enemy : MobileEntity
+public class Enemy : MonoBehaviour
 {
     private static float I_AM_HERE_THRESHHOLD = .3f;
 
@@ -30,11 +30,22 @@ public class Enemy : MobileEntity
     {
         CheckGoal();
         // Move();
+        string outstr = "";
+        foreach(Vector3 coords in agent.path.corners)
+        {
+            outstr += coords.ToString();
+        }
+        Debug.Log(outstr);
     }
 
     public float GetPathDistance()
     {
         return agent.remainingDistance;
+    }
+
+    public void TakeDmg(int dmg)
+    {
+
     }
 
     void CheckGoal()
@@ -58,7 +69,7 @@ public class Enemy : MobileEntity
             }
         }
     }
-
+/*
     // TODO: Something about being frozen, or slowed, or something idk
     void Move()
     {
@@ -96,9 +107,10 @@ public class Enemy : MobileEntity
         // This might not work properly, but walk towards next node
         addHorizontalVelocity(.2f,0,.7f,0);
         applyHorizontalFriction(friction);
-    }
     
-    protected override void Die()
+    }
+*/    
+    protected void Die()
     {
         gameManager.IncreaseCash(value);
         gameManager.RemoveEnemy(this);
