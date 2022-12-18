@@ -78,6 +78,6 @@ MonoBehaviour:
   range: 3
   attackSpeed: 1
   cost: 15
-  damage: 3
   gameManager: {fileID: 0}
   targettingType: 0
+  damage: 70
