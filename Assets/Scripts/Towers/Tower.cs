@@ -33,7 +33,7 @@ public abstract class Tower : MonoBehaviour
 
     void Update()
     {
-        if (gameManager.GetGameState() == GameState.Defending && gameManager.controllable)
+        if (gameManager.GetGameState() == GameState.Defending)
         {
             timer -= Time.deltaTime;
             if (timer < 0 && AttemptAttack())
