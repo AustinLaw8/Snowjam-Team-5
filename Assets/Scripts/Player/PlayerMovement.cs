@@ -49,6 +49,10 @@ public class PlayerMovement : MobileEntity
         trfm.localEulerAngles += rotation;
     }
 
+    public bool OnGround()
+    {
+        return m_onGroundScript.isOnGround();
+    }
     void FixedUpdate()
     {
         applyHorizontalFriction(friction);

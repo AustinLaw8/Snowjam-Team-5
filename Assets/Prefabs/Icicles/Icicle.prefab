@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8086641261294827917}
   - component: {fileID: 3040572234688232321}
   - component: {fileID: 5093407615165464756}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 105696354369614568}
   - component: {fileID: 2597071003504781360}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3381026972637790243}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7698129087755584004}
   - component: {fileID: 5174815843319861973}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: swirlTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 786560383926083439}
   - component: {fileID: 5386899818811798895}
   - component: {fileID: 4986421705817296817}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5135,7 +5135,7 @@ GameObject:
   - component: {fileID: 6391566155884483584}
   - component: {fileID: 8405849479417728278}
   - component: {fileID: 275860375322103458}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: snowflakes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9946,7 +9946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5208428480215900093}
   - component: {fileID: 6670688471250608319}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10077,7 +10077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794763589460222657}
   - component: {fileID: 337372544735560031}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10268,6 +10268,10 @@ PrefabInstance:
     - target: {fileID: 7441431768473192131, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
       propertyPath: m_Name
       value: Icicle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441431768473192131, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1754518087757057531, guid: 47133d1f1b36a624d916632fa37b799f, type: 3}
