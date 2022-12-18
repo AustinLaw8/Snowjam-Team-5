@@ -910,10 +910,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2706053913289066922, guid: 78919896a7267496297c09cfa4dec56f, type: 3}
-      propertyPath: damage
-      value: 70
-      objectReference: {fileID: 0}
     - target: {fileID: 6756344395716503792, guid: 78919896a7267496297c09cfa4dec56f, type: 3}
       propertyPath: m_Name
       value: AOERadiusTower
@@ -1298,5 +1294,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7592387268290085911, guid: 475b9a78182b442c494c83bc73ad85c6, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: fb9a38418a6034297910499261697b8c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 475b9a78182b442c494c83bc73ad85c6, type: 3}
