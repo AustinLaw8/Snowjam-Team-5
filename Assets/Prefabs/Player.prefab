@@ -915,7 +915,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &147566370934539693
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -932,7 +932,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!114 &5414084666303024579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,6 +1157,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a07e855dfa94fdf919caf746332944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skatingSpeedUpModifier: 0.03
+  skatingSlowDownModifier: 0.02
+  maxSpeed: 15
 --- !u!114 &5720548348493699243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2454,7 +2457,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 471
+    m_Bits: 7639
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6998326950256758361
+--- !u!1001 &7894325199314058594
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
       propertyPath: m_Name
-      value: BasicTowerProjectile
+      value: TowerIcicle
       objectReference: {fileID: 0}
     - target: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
       propertyPath: m_Layer
@@ -91,60 +91,5 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6904813251244335813, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
---- !u!198 &1565175523544417103 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8405849479417728278, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
-  m_PrefabInstance: {fileID: 6998326950256758361}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3144997265558541804 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5384698844974537653, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
-  m_PrefabInstance: {fileID: 6998326950256758361}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &3160701824881425206 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5386899818811798895, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
-  m_PrefabInstance: {fileID: 6998326950256758361}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &5145877182124924708 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 2771641490370253181, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
-  m_PrefabInstance: {fileID: 6998326950256758361}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5761475384110468730 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3381026972637790243, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
-  m_PrefabInstance: {fileID: 6998326950256758361}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7929551073756833167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1086601128815045590, guid: f7486f980523ad94b92bc0da9be2f5e2, type: 3}
-  m_PrefabInstance: {fileID: 6998326950256758361}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &-5457444182179482195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7929551073756833167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ac9246a5ab9a44389d8ef626340ac30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 50
-  destroyFX: {fileID: 5147277335958705927, guid: 6edf245eb2231ed4e8db48950843177f, type: 3}
-  trfm: {fileID: 3144997265558541804}
-  fxTrfm: {fileID: 5761475384110468730}
-  rb: {fileID: 5145877182124924708}
-  spd: 12
-  maxDuration: 5
-  icicleType: 0
-  ptclSys:
-  - {fileID: 3160701824881425206}
-  - {fileID: 1565175523544417103}
-  explosionRadius: 0.5
