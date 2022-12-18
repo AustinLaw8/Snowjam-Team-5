@@ -81,8 +81,16 @@ public class GameManager : MonoBehaviour
     {
         cashText.text = $"{cash}";
         hpText.text = $"{health}";
-        waveCountText.text = $"Wave {currentWave+1}/{totalWaves}";
-        enemyCountText.text = $"{enemiesLeft} enemies remaining";
+        waveCountText.text = $"Wave {currentWave}/{totalWaves}";
+        if(gameState == GameState.Defending)
+        {
+            enemyCountText.text = $"{enemiesLeft} enemies remaining";
+        }
+        else if (gameState == GameState.Building)
+        {
+            enemyCountText.text = $"Start next wave (k)";
+        }
+
     }
 
     public void StartNextWave()
