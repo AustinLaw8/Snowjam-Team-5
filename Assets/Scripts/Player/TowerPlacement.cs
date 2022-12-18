@@ -120,6 +120,10 @@ public class TowerPlacement : MonoBehaviour
         {
             index = 1;
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            index = 2;
+        }
 
         int tempInd = (Mathf.RoundToInt(index) + towerPrefabs.Count) % towerPrefabs.Count;
         if (last != tempInd)
