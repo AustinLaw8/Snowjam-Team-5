@@ -2,7 +2,34 @@ fileFormatVersion: 2
 guid: 9754d9b2da5c0fe4aa27324e27f00cbd
 ModelImporter:
   serializedVersion: 21300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -4746827508932177955
+    second: CrabArma|attack-crab
+  - first:
+      74: 497784119590473939
+    second: CrabArma|block-crab
+  - first:
+      74: 7935277968138150005
+    second: CrabArma|blockHit-crab
+  - first:
+      74: -742429573109681466
+    second: CrabArma|blockIdle-crab
+  - first:
+      74: 3611846193316924485
+    second: CrabArma|death-crab
+  - first:
+      74: 9027627538514735380
+    second: CrabArma|hurt-crab
+  - first:
+      74: 4568368622315215855
+    second: CrabArma|hurt-crabNOPE
+  - first:
+      74: -6356450605057419000
+    second: CrabArma|idle-crab
+  - first:
+      74: -3046002948518231294
+    second: CrabArma|walk-crab
   externalObjects: {}
   materials:
     materialImportMode: 2
