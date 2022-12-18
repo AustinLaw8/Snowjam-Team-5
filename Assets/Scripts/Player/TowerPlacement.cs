@@ -158,7 +158,7 @@ public class TowerPlacement : MonoBehaviour
         //}
 
 
-        foreach (RaycastHit hit in Physics.BoxCastAll(chosenTower.transform.position + Vector3.up * .75f, Vector3.one, Vector3.down, Quaternion.identity, 1f, 1 << 6))
+        foreach (RaycastHit hit in Physics.BoxCastAll(chosenTower.transform.position + Vector3.up * .75f, Vector3.one, Vector3.down, Quaternion.identity, 0.7f, 1 << 6))
         {
             Debug.Log(hit.collider.tag);
             if (hit.collider.CompareTag("Navmesh"))

@@ -7,6 +7,8 @@ public class Gatling : MountableTower
     [SerializeField] Transform barrel;
     [SerializeField] Transform spawnpoint;
     [SerializeField] GameObject bullet;
+    [SerializeField] [Tooltip("for animation")] GameObject spinBarrel;
+    [SerializeField] [Range(0, 10f)] float maxRevRate = 2.5f;
 
     float curDelay;
     [SerializeField] float chargeTime = 1f;
@@ -23,17 +25,21 @@ public class Gatling : MountableTower
     // Update is called once per frame
     void Update()
     {
-        yaxis = Mathf.Clamp(yaxis, -100f, -80f);
+        yaxis = Mathf.Clamp(yaxis, -30f, 0f);
         xaxis = Mathf.Clamp(xaxis, -45f, 45f);
 
         barrel.localEulerAngles = new Vector3(yaxis, xaxis, 0);
 
         if (curDelay > 0)
             curDelay -= Time.deltaTime;
+        else
+            curDelay = 0;
         if (spinUpDuration > 0)
         {
             spinUpDuration -= Time.deltaTime;
         }
+
+        spinBarrel.transform.Rotate(Vector3.up, Mathf.Pow(spinUpDuration / chargeTime, 2) * Mathf.PI * 2 * maxRevRate);
     }
 
     public override void Shoot()

@@ -7,6 +7,7 @@ public class PlayerMounting : MonoBehaviour
     MountableTower curTower;
     GameObject cam;
     PlayerMovementController mainControl;
+    Rigidbody rb;
     Vector3 originalPos;
     Quaternion originalRot;
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class PlayerMounting : MonoBehaviour
     {
         mainControl = GetComponent<PlayerMovementController>();
         cam = mainControl.cam.gameObject;
+        rb = GetComponent<Rigidbody>();
     }   
 
     private void OnEnable()
@@ -24,19 +26,21 @@ public class PlayerMounting : MonoBehaviour
             cam = mainControl.cam.gameObject;
         }
         Mount(mainControl.inRangeTower);
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        rb.velocity = Vector3.zero;
+        rb.isKinematic = true;
     }
 
     private void OnDisable()
     {
+        rb.isKinematic = false;
         Dismount();
     }
 
     public void Mount(MountableTower tower)
     {
         curTower = tower;
-        originalPos = cam.transform.position;
-        originalRot = cam.transform.rotation;
+        originalPos = cam.transform.localPosition;
+        originalRot = cam.transform.localRotation;
         Debug.Log(originalPos);
         cam.transform.GetChild(0).gameObject.SetActive(false);  // Disable arms
     }
@@ -70,8 +74,8 @@ public class PlayerMounting : MonoBehaviour
     public void Dismount()
     {
         curTower = null;
-        cam.transform.position = originalPos;
-        cam.transform.rotation = originalRot;
+        cam.transform.localPosition = originalPos;
+        cam.transform.localRotation = originalRot;
         cam.transform.GetChild(0).gameObject.SetActive(true);  // Enable arms
     }
 }
