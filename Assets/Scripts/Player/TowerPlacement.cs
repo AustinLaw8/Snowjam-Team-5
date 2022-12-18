@@ -29,13 +29,13 @@ public class TowerPlacement : MonoBehaviour
     void Start()
     {
         index = 0;
+        if (UI_Text == null) UI_Text = GameObject.Find("TowerPlacementText").GetComponent<TMP_Text>();
         if (gameManager == null) gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Handles actual placement on click, and rotate on Q and E
     void Update()
     {
-        // TODO: rotate hologram
         if (chosenTower.activeSelf)
         {
             if (Input.GetMouseButtonDown(0))
@@ -63,6 +63,7 @@ public class TowerPlacement : MonoBehaviour
         UI_Text.enabled = chosenTower.activeSelf;
     }
 
+    // TODO:
     bool ValidateTowerLocation()
     {
         return true;
@@ -89,6 +90,7 @@ public class TowerPlacement : MonoBehaviour
             // If hovering over a tower, do something else (allow for selling or something, but we figure that out later)
             if (hit.transform.gameObject.layer == 7)
             {
+                // TODO: Create range indicator
                 Debug.Log("Hovering over other tower");
                 // hit.transform.GetChild(0).activeSelf = true;
                 chosenTower.SetActive(false);
@@ -129,6 +131,7 @@ public class TowerPlacement : MonoBehaviour
 
     void OnDisable()
     {
+        UI_Text.enabled = false;
         Destroy(chosenTower);
     }
 }

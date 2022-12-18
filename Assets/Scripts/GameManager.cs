@@ -40,14 +40,15 @@ public class GameManager : MonoBehaviour
         waves.Enqueue(5);
         currentEnemies = new HashSet<Enemy>();
         if (player == null) player = GameObject.Find("Player");
-
+        if (cashText == null) cashText = GameObject.Find("CashText").GetComponent<TMP_Text>();
+        if (hpText == null) hpText = GameObject.Find("HPText").GetComponent<TMP_Text>();
         player.GetComponent<PlayerShooting>().enabled = false;
         player.GetComponent<TowerPlacement>().enabled = true;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (!waveInProgress && Input.GetKeyDown(KeyCode.K))
         {
             StartNextWave();
         }
@@ -68,6 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNextWave()
     {
+        if (waves.Count == 0) return;
         waveInProgress = true;
         int curWave = waves.Peek();
         waves.Dequeue();

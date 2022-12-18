@@ -9,8 +9,6 @@ public class AOERadiusTower : Tower
         List<Enemy> targets = GetAllEnemiesInRange();
         if (targets.Count > 0)
         {
-            Debug.Log("Attracking");
-
             foreach (Enemy enemy in targets)
             {
                 enemy.TakeDmg(damage);
