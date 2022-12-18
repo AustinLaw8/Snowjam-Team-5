@@ -37,9 +37,13 @@ public class PlayerMovementController : MonoBehaviour
             // skating toggle
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                currentState = MoveState.Skating;
+                if(movement.OnGround())
+                {
+                    currentState = MoveState.Skating;
+                }
+
             }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
+            if (Input.GetKeyUp(KeyCode.LeftShift) && currentState == MoveState.Skating)
             {
                 currentState = MoveState.Moving;
             }
