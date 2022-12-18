@@ -19,6 +19,6 @@ public class SpawnPointHole : MonoBehaviour
 
     public void SpawnEnemy(GameObject enemy)
     {
-
+        
     }
 }

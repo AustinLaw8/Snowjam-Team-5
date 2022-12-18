@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private int cash;
     [SerializeField] private int health;
-    
+
     [SerializeField] public TMP_Text cashText;
     [SerializeField] public TMP_Text hpText;
 
@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviour
 
     public bool waveInProgress;
     public bool controllable;
+
+    [SerializeField] EnemyType[] waveOne;
+    [SerializeField] EnemyType[] waveTwo;
+    [SerializeField] EnemyType[] waveThree;
+    [SerializeField] EnemyType[] waveFour;
+
+    public enum EnemyType {land, cave }
 
     void Start()
     {
@@ -77,6 +84,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < curWave; i++)
         {
+
             Enemy newEnemy = GameObject.Instantiate(ENEMY_PREFAB).GetComponent<Enemy>();
             // newEnemy.SetNodes(tempNodes);
             currentEnemies.Add(newEnemy);
