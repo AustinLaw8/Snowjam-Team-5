@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
+//[RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MobileEntity
 {
-    private static float I_AM_HERE_THRESHHOLD = .3f;
+    private static float I_AM_HERE_THRESHHOLD = 3f;
 
     [SerializeField] protected int value;
 
@@ -21,6 +21,8 @@ public class Enemy : MobileEntity
 
     [SerializeField] float speed, acceleration;
 
+    [SerializeField] GameObject currentNodeObj;
+
     void Start()
     {
         gameManager = GameManager.self;
@@ -32,6 +34,7 @@ public class Enemy : MobileEntity
         {
             nodeCheckDelay = 25;
             UpdateNode();
+            currentNodeObj = gameManager.nodes[currentTargetNode].gameObject;
         }
         else
         {
@@ -44,6 +47,8 @@ public class Enemy : MobileEntity
 
     void UpdateNode()
     {
+        trfm.LookAt(gameManager.nodes[currentTargetNode].position);
+
         if (Vector3.Distance(trfm.position, gameManager.nodes[currentTargetNode].position) < I_AM_HERE_THRESHHOLD)
         {
             currentTargetNode++;
