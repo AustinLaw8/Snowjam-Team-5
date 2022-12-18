@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent))]
-public class Enemy : MobileEntity
+public class Enemy_Nodes : MobileEntity
 {
     private static float I_AM_HERE_THRESHHOLD = .3f;
 
@@ -23,7 +21,7 @@ public class Enemy : MobileEntity
 
     void Start()
     {
-        gameManager = GameManager.self;
+        //gameManager = GameManager.gameManager;
     }
 
     void FixedUpdate()
@@ -38,13 +36,13 @@ public class Enemy : MobileEntity
             nodeCheckDelay--;
         }
 
-        addHorizontalVelocity(acceleration, 0, speed, 0);
+        addHorizontalVelocity(acceleration,0,speed,0);
         applyHorizontalFriction(friction);
     }
 
     void UpdateNode()
     {
-        if (Vector3.Distance(trfm.position, gameManager.nodes[currentTargetNode].position) < I_AM_HERE_THRESHHOLD)
+        //if (Vector3.Distance(trfm.position, gameManager.nodes[currentTargetNode].position) < I_AM_HERE_THRESHHOLD)
         {
             currentTargetNode++;
         }
@@ -75,7 +73,7 @@ public class Enemy : MobileEntity
     protected override void Die()
     {
         gameManager.IncreaseCash(value);
-        gameManager.RemoveEnemy(this);
+        //gameManager.RemoveEnemy(this);
         Destroy(this.gameObject);
     }
 }

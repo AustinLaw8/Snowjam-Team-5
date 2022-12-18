@@ -4,55 +4,39 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Enemy : MobileEntity
+public class Enemy_backup : MobileEntity
 {
     private static float I_AM_HERE_THRESHHOLD = .3f;
 
     [SerializeField] protected int value;
-
+    
     // GameManager will probably pass every enemy the nodes
     protected Queue<Vector3> movementNodes;
     protected GameManager gameManager;
 
-    int currentTargetNode = 0;
+    NavMeshAgent agent;
     int curGoal = 0;
-
-    int nodeCheckDelay;
-
-    [SerializeField] float speed, acceleration;
 
     void Start()
     {
-        gameManager = GameManager.self;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.destination = gameManager.goal[curGoal].position;
     }
 
     void FixedUpdate()
     {
-        if (nodeCheckDelay < 1)
-        {
-            nodeCheckDelay = 25;
-            UpdateNode();
-        }
-        else
-        {
-            nodeCheckDelay--;
-        }
-
-        addHorizontalVelocity(acceleration, 0, speed, 0);
-        applyHorizontalFriction(friction);
+        CheckGoal();
     }
 
-    void UpdateNode()
+    public float GetPathDistance()
     {
-        if (Vector3.Distance(trfm.position, gameManager.nodes[currentTargetNode].position) < I_AM_HERE_THRESHHOLD)
-        {
-            currentTargetNode++;
-        }
+        return agent.remainingDistance;
     }
 
     void CheckGoal()
     {
-        //if (agent.remainingDistance < I_AM_HERE_THRESHHOLD)
+        if (agent.remainingDistance < I_AM_HERE_THRESHHOLD)
         {
             curGoal++;
             if (curGoal >= gameManager.goal.Length)
@@ -64,18 +48,17 @@ public class Enemy : MobileEntity
                 //gameManager.RemoveEnemy(this);
                 Destroy(this.gameObject);
                 return;
-            }
-            else
+            } else
             {
-                //agent.destination = gameManager.goal[curGoal].position;
+                agent.destination = gameManager.goal[curGoal].position;
             }
         }
-    }
+    } 
 
     protected override void Die()
     {
         gameManager.IncreaseCash(value);
-        gameManager.RemoveEnemy(this);
+        //gameManager.RemoveEnemy(this);
         Destroy(this.gameObject);
     }
 }

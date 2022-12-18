@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
     private int totalWaves;
     private int enemiesLeft;
 
+    public static GameManager self;
+    public Transform[] nodes;
+
     public enum EnemyType {water, cave, flying }
 
     [System.Serializable]
@@ -46,6 +49,11 @@ public class GameManager : MonoBehaviour
         [SerializeField] public EnemyType[] enemies;
     }
     [SerializeField] EnemyWaves[] enemyWaves;
+
+    private void Awake()
+    {
+        self = GetComponent<GameManager>();
+    }
 
     void Start()
     {
