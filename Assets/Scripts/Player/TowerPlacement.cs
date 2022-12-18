@@ -68,7 +68,6 @@ public class TowerPlacement : MonoBehaviour
 
         if (Physics.Raycast(this.transform.position, Camera.main.transform.forward, out hit, MAX_DIST))
         {
-            Debug.Log(hit.point + offset);
             // If hovering over a tower, display range for that tower
             if (hit.transform.gameObject.layer == 7)
             {
