@@ -915,7 +915,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &147566370934539693
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -932,7 +932,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5414084666303024579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1136,11 +1136,11 @@ MonoBehaviour:
   rb: {fileID: 147566370964532912}
   m_onGroundScript: {fileID: 147566370587971767}
   velocityModifier: 1
-  friction: 0.15
+  friction: 0.3
   YVel: 0
-  accl: 0.5
-  baseSpd: 1.1
-  jumpPwr: 3
+  accl: 0.8
+  baseSpd: 4
+  jumpPwr: 10
   XSensitivity: 1
   groundedFriction: 0.15
   aerialFriction: 0.01
