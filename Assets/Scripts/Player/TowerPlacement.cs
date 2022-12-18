@@ -148,9 +148,9 @@ public class TowerPlacement : MonoBehaviour
         // TODO: some shader stuff idk
         if (gameManager.SpendCash(chosenTower.GetComponent<Tower>().GetCost()))
         {
+            Destroy(rangeIndicator);
             chosenTower.GetComponent<Collider>().enabled = true;
             chosenTower = CreateHologram();
-            Destroy(rangeIndicator);
         }
     }
 

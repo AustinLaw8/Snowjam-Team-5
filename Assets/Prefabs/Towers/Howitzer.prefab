@@ -10221,7 +10221,7 @@ MonoBehaviour:
   - {fileID: 4442024101119543005}
 --- !u!95 &8243880004064504608
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10238,7 +10238,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!65 &6627076623004835666
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10251,7 +10251,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 5, y: 5.5, z: 4.5}
-  m_Center: {x: 0, y: 8, z: 2}
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!1 &8938113304332151301
 GameObject:
   m_ObjectHideFlags: 0
