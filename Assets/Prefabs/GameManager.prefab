@@ -45,10 +45,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitTime: 1
-  ENEMY_PREFAB: {fileID: 7366624634862130008, guid: 4b43ed080ec5e4286bdee9799cae340d, type: 3}
+  ENEMY_PREFABS:
+  - {fileID: 7366624634862130008, guid: 4b43ed080ec5e4286bdee9799cae340d, type: 3}
   player: {fileID: 0}
   cash: 0
-  health: 0
+  health: 10
   cashText: {fileID: 0}
   hpText: {fileID: 0}
   tempNodes:
@@ -64,9 +65,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  waveInProgress: 0
   controllable: 0
-  waveOne: 
-  waveTwo: 
-  waveThree: 
-  waveFour: 
+  enemyWaves:
+  - enemies: 000000000000000000000000
+  - enemies: 000000000000000000000000
+  - enemies: 000000000000000000000000

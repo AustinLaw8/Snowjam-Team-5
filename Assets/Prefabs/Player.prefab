@@ -1107,11 +1107,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa71e0631ea94cba83986e7546a0dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SPHERE: {fileID: 2977782287459804882, guid: 9a7ff10109bae4c098d71dae774c0e68, type: 3}
   gameManager: {fileID: 0}
   towerPrefabs:
   - {fileID: 7229135029709498238, guid: bae67d2880f2a434db25df607c374070, type: 3}
-  rotationSpeed: 0
+  - {fileID: 6756344395716503792, guid: 78919896a7267496297c09cfa4dec56f, type: 3}
+  - {fileID: 8415461202077114481, guid: 5982e72847bbe2c48beb5051dba62b82, type: 3}
+  rotationSpeed: 72
+  scrollRate: 0.25
   UI_Text: {fileID: 0}
+  index: 0
 --- !u!114 &762659855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1164,8 +1169,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b7bb3528a7a47adb4e6dcc6747208d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   cam: {fileID: 147566372071361102}
   inRangeTower: {fileID: 0}
+  currentState: 0
 --- !u!114 &5868256671761584649
 MonoBehaviour:
   m_ObjectHideFlags: 0
