@@ -144,6 +144,35 @@ public class TowerPlacement : MonoBehaviour
     // TODO:
     bool ValidateTowerLocation()
     {
+        // Debug.Log(chosenTower.transform.position);
+        
+        //Physics.BoxCast(chosenTower.transform.position + Vector3.up * .75f, Vector3.one, Vector3.down, out var targ, Quaternion.identity, 1f, 1 << 6);
+        //if (targ.collider.CompareTag("Navmesh"))
+        //{
+        //    Debug.Log("Found");
+        //    return false;
+        //} else
+        //{
+        //    return true;
+        //    Debug.Log("Not found");
+        //}
+
+
+        foreach (RaycastHit hit in Physics.BoxCastAll(chosenTower.transform.position + Vector3.up * .75f, Vector3.one, Vector3.down, Quaternion.identity, 1f, 1 << 6))
+        {
+            Debug.Log(hit.collider.tag);
+            if (hit.collider.CompareTag("Navmesh"))
+            {
+                Debug.Log("Found");
+                return false;
+            } else
+            {
+                Debug.Log("Not found");
+                return true;
+            }
+              
+        }
+        Debug.Log("Not found");
         return true;
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15245,7 +15245,7 @@ MeshCollider:
   m_GameObject: {fileID: 963343366}
   m_Material: {fileID: 13400000, guid: 090c1c18775a17b42bf76187cede65ba, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -15846,6 +15846,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a624177e44c01944c81da77b26ce9283, type: 3}
       propertyPath: m_Name
       value: NewNavimesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a624177e44c01944c81da77b26ce9283, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a624177e44c01944c81da77b26ce9283, type: 3}
+      propertyPath: m_TagString
+      value: Navmesh
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a624177e44c01944c81da77b26ce9283, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16611,7 +16619,7 @@ GameObject:
   - component: {fileID: 3469287836776478706}
   - component: {fileID: 1711813855936889656}
   - component: {fileID: 3469287836776478707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
