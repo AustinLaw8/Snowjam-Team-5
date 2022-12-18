@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text waveCountText;
     [SerializeField] private TMP_Text enemyCountText;
 
+    [SerializeField] private GameObject endGameCanvas;
+
     public Transform[] goal;
     private Queue<int> waves;
 
@@ -135,6 +137,8 @@ public class GameManager : MonoBehaviour
         if (currentWave == enemyWaves.Length)
         {
             Debug.Log("No more waves, gg");
+            gameOver(false);
+
         }
         gameState = GameState.Building;
         // TODO:
@@ -148,7 +152,23 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("you died, gg");
             // Handle death
+            gameOver(true);
         }
+    }
+
+
+    public void gameOver(bool died)
+    {
+        if(died)
+        {
+            endGameCanvas.GetComponentInChildren<TMP_Text>().text = "GGWP, you died!";
+        }
+        else
+        {
+            endGameCanvas.GetComponentInChildren<TMP_Text>().text = "GGWP, you won!";
+        }
+        endGameCanvas.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public GameState GetGameState() { return gameState; }
