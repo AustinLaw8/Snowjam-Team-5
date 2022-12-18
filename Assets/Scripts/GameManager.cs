@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
 {
     private HashSet<Enemy> currentEnemies;
     [SerializeField] private float waitTime;
-    [SerializeField] private GameObject ENEMY_PREFAB;
+    [SerializeField] private GameObject[] ENEMY_PREFABS;
+    GameObject nextEnemy;
 
     [SerializeField] private GameObject player;
     [SerializeField] private int cash;
@@ -24,12 +25,16 @@ public class GameManager : MonoBehaviour
     public bool waveInProgress;
     public bool controllable;
 
-    [SerializeField] EnemyType[] waveOne;
-    [SerializeField] EnemyType[] waveTwo;
-    [SerializeField] EnemyType[] waveThree;
-    [SerializeField] EnemyType[] waveFour;
+    int currentWave;
 
-    public enum EnemyType {land, cave }
+    public enum EnemyType {water, cave, flying }
+
+    [System.Serializable]
+    public struct Fdsa
+    {
+        [SerializeField] public EnemyType[] enemies;
+    }
+    [SerializeField] Fdsa[] enemyWaves;
 
     void Start()
     {
@@ -69,23 +74,37 @@ public class GameManager : MonoBehaviour
     public void StartNextWave()
     {
         waveInProgress = true;
-        int curWave = waves.Peek();
-        waves.Dequeue();
+        //int curWave = waves.Peek();
+        //waves.Dequeue();
 
         player.GetComponent<PlayerShooting>().enabled = true;
         player.GetComponent<TowerPlacement>().enabled = false;
 
-        IEnumerator spawnRoutine = SpawnWave(curWave);
+        IEnumerator spawnRoutine = SpawnWave(currentWave);
+        currentWave++;
+
         StartCoroutine(spawnRoutine);
     }
 
     // Spawns the next enemy every x seconds
     IEnumerator SpawnWave(int curWave)
     {
-        for (int i = 0; i < curWave; i++)
+        for (int i = 0; i < enemyWaves[curWave].enemies.Length; i++)
         {
+            if (enemyWaves[curWave].enemies[i] == EnemyType.water)
+            {
+                nextEnemy = ENEMY_PREFABS[0];
+            }
+            else if (enemyWaves[curWave].enemies[i] == EnemyType.cave)
+            {
+                nextEnemy = ENEMY_PREFABS[1];
+            }
+            else if (enemyWaves[curWave].enemies[i] == EnemyType.flying)
+            {
+                //nextEnemy = ENEMY_PREFABS[2];
+            }
 
-            Enemy newEnemy = GameObject.Instantiate(ENEMY_PREFAB).GetComponent<Enemy>();
+            Enemy newEnemy = GameObject.Instantiate(nextEnemy).GetComponent<Enemy>();
             // newEnemy.SetNodes(tempNodes);
             currentEnemies.Add(newEnemy);
             yield return new WaitForSeconds(waitTime);
