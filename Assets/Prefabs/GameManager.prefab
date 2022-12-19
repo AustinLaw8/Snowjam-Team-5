@@ -44,15 +44,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ab7c577ebc5a435eb32343fc04ba6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
+  airdrop: {fileID: 944198020485351262, guid: 1fe7acff6041b424abd428912a01a437, type: 3}
+  chosenSpawnPoint: {fileID: 0}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   waitTime: 1
   ENEMY_PREFABS:
-  - {fileID: 7366624634862130008, guid: 4b43ed080ec5e4286bdee9799cae340d, type: 3}
+  - {fileID: 7366624634862130008, guid: f9bd2e3f2f9af1a4290f1d80e21198ef, type: 3}
   - {fileID: 7366624634862130008, guid: 4b43ed080ec5e4286bdee9799cae340d, type: 3}
   - {fileID: 7366624634862130008, guid: 94fc75545c3fa5941ba20b705217cff0, type: 3}
   player: {fileID: 0}
   pauseCanvas: {fileID: 0}
-  cash: 0
+  cash: 100
   health: 10
   cashText: {fileID: 0}
   hpText: {fileID: 0}
@@ -67,9 +71,28 @@ MonoBehaviour:
   - {fileID: 0}
   gameState: 0
   paused: 0
-  nodes: []
+  nodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   enemyWaves:
-  - enemies: 000000000000000000000000000000000000000000000000
+  - enemies: 000000000000000002000000000000000000000000000000
   - enemies: 000000000000000000000000000000000000000000000000
   - enemies: 000000000000000000000000000000000000000000000000
   - enemies: 000000000000000000000000000000000000000000000000

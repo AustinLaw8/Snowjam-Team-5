@@ -53,6 +53,7 @@ public class Enemy : MobileEntity
             if (currentTargetNode == gameManager.nodes.Length)
             {
                 gameManager.DecreaseHealth(1);
+                gameManager.RemoveEnemy(this);
 
                 Debug.Log("MADE IT BRO");
 

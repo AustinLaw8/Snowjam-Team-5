@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
 
     private int currentWave;
     private int totalWaves;
-    private int enemiesLeft;
 
     public static GameManager self;
     public Transform[] nodes;
@@ -60,7 +59,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentWave = 0;
-        enemiesLeft = enemyWaves[0].enemies.Length;
         totalWaves = enemyWaves.Length;
         currentEnemies = new HashSet<Enemy>();
         if (player == null) player = GameObject.Find("Player");
@@ -96,7 +94,7 @@ public class GameManager : MonoBehaviour
         waveCountText.text = $"Wave {currentWave}/{totalWaves}";
         if(gameState == GameState.Defending)
         {
-            enemyCountText.text = $"{enemiesLeft} enemies remaining";
+            enemyCountText.text = $"{currentEnemies.Count} enemies remaining";
         }
         else if (gameState == GameState.Building)
         {
@@ -127,7 +125,6 @@ public class GameManager : MonoBehaviour
     // Spawns the next enemy every `waitTime` seconds
     IEnumerator SpawnWave(int curWave)
     {
-        enemiesLeft = enemyWaves[currentWave].enemies.Length;
         for (int i = 0; i < enemyWaves[curWave].enemies.Length; i++)
         {
             if (enemyWaves[curWave].enemies[i] == EnemyType.water)
@@ -173,7 +170,6 @@ public class GameManager : MonoBehaviour
 
     public void DecreaseHealth(int amount) {
         health -= amount;
-        enemiesLeft--;
         if (health <= 0)
         {
             Debug.Log("you died, gg");
@@ -200,7 +196,7 @@ public class GameManager : MonoBehaviour
 
     public GameState GetGameState() { return gameState; }
 
-    public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); enemiesLeft--; }
+    public void RemoveEnemy(Enemy enemy) { currentEnemies.Remove(enemy); }
     public HashSet<Enemy> GetEnemies() { return currentEnemies; }
 
     public int GetCash() { return cash; }
