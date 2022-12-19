@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccafc0b4d71c143249965f87eda68221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
+  range: 7
   attackSpeed: 0.5
   cost: 10
   gameManager: {fileID: 0}

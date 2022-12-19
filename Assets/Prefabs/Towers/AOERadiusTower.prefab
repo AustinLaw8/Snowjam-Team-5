@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e59c1b46caf40f8b29c939900977f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 3
+  range: 5
   attackSpeed: 1
   cost: 15
   gameManager: {fileID: 0}
