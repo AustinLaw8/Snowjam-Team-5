@@ -13,6 +13,8 @@ public class PlayerShooting : MonoBehaviour
         - (Potentially) Loading in special rounds
     */
     [SerializeField] Animator anim;
+    AudioSource sound;
+    [SerializeField] AudioClip shootSFX;
 
 
     [SerializeField] List<GameObject> projectileIcicle;
@@ -42,6 +44,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Start()
     {
+        sound = GetComponent<AudioSource>();
         curDelay = 0;
         icicleList = new List<GameObject>();
         Reload(curIcicleType);
@@ -100,6 +103,7 @@ public class PlayerShooting : MonoBehaviour
         anim.SetBool("Attack", true);
         if (icicleList.Count > 0)
         {
+            sound.PlayOneShot(shootSFX);
             Instantiate(projectileIcicle[(int)type], icicleList[icicleCount - 1].transform.position, cameraController.self.camTrfm.rotation);
             Destroy(icicleList[icicleCount - 1]);
             icicleList.RemoveAt(icicleCount - 1);
