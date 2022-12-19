@@ -14,7 +14,8 @@ public class PlayerShooting : MonoBehaviour
     */
     [SerializeField] Animator anim;
     AudioSource sound;
-    [SerializeField] AudioClip shootSFX;
+    [SerializeField] AudioSource drinkSFX;
+    [SerializeField] AudioSource shootSFX;
 
 
     [SerializeField] List<GameObject> projectileIcicle;
@@ -78,6 +79,7 @@ public class PlayerShooting : MonoBehaviour
 
     public void Reload(IcicleType type = 0)
     {
+        drinkSFX.PlayDelayed(.5f);
         anim.Play("Reload");
         curIcicleType = type;
         for (int i = 0; i < icicleList.Count; i++)
@@ -107,7 +109,7 @@ public class PlayerShooting : MonoBehaviour
         anim.SetBool("Attack", true);
         if (icicleList.Count > 0)
         {
-            sound.PlayOneShot(shootSFX);
+            shootSFX.Play();
             Instantiate(projectileIcicle[(int)type], icicleList[icicleCount - 1].transform.position, cameraController.self.camTrfm.rotation);
             Destroy(icicleList[icicleCount - 1]);
             icicleList.RemoveAt(icicleCount - 1);

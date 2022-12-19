@@ -16,6 +16,8 @@ public class PlayerMovement : MobileEntity
     [SerializeField] private GameObject icicleObj;
     private int iciclesLeft;
 
+    [SerializeField] AudioSource walkSFX;
+
     bool compareOnGround;
 
     void Start()
@@ -73,8 +75,10 @@ public class PlayerMovement : MobileEntity
         processHorizontalInput();
     }
 
+    bool inputFlag;
     void processHorizontalInput()
     {
+        inputFlag = true;
         if (Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
         {
             if (Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
@@ -115,6 +119,18 @@ public class PlayerMovement : MobileEntity
             {
                 addHorizontalVelocity(0, accl, 0, baseSpd);
             }
+            else //no input
+            {
+                inputFlag = false;
+            }
+        }
+        if (inputFlag)
+        {
+            if (!walkSFX.isPlaying) { walkSFX.Play(); }
+        }
+        else
+        {
+            if (walkSFX.isPlaying) { walkSFX.Stop(); }
         }
     }
 }
