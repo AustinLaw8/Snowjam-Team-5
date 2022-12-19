@@ -10,6 +10,10 @@ public class BasicTower : Tower
 
     private Enemy target;
 
+    private void OnDestroy()
+    {
+        Debug.Log("ahhhh im dead");
+    }
     protected override bool AttemptAttack()
     {
         switch (targettingType)

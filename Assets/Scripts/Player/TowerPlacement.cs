@@ -27,6 +27,7 @@ public class TowerPlacement : MonoBehaviour
     private GameObject rangeIndicator;
     private Vector3 offset;
 
+
     void Start()
     {
         index = 0;
@@ -80,6 +81,17 @@ public class TowerPlacement : MonoBehaviour
                 // Place hologram, allow rotation
                 AttachRangeIndicator(chosenTower.transform);
                 chosenTower.transform.position = hit.point + offset;
+                MeshRenderer[] meshes = chosenTower.GetComponentsInChildren<MeshRenderer>();
+                foreach (MeshRenderer mesh in meshes)
+                {
+                    if(ValidateTowerLocation())
+                    {
+                        mesh.material.SetColor("_Color", new Color(0f, 1f, 0f, .5f));
+                    } else
+                    {
+                        mesh.material.SetColor("_Color", new Color(1f, 0f, 0f, .5f));
+                    }
+                }
                 chosenTower.SetActive(true);
             }
         }
@@ -182,7 +194,10 @@ public class TowerPlacement : MonoBehaviour
         if (gameManager.SpendCash(chosenTower.GetComponent<Tower>().GetCost()))
         {
             Destroy(rangeIndicator);
-            chosenTower.GetComponent<Collider>().enabled = true;
+            GameObject tower = Instantiate(towerPrefabs[Mathf.RoundToInt(index)], chosenTower.transform);
+            tower.transform.parent = null;
+            Destroy(chosenTower);
+            //chosenTower.GetComponent<Collider>().enabled = true;
             chosenTower = CreateHologram();
         }
     }
@@ -202,6 +217,22 @@ public class TowerPlacement : MonoBehaviour
         // And enabling the UI text
         UI_Text.text = $"Cost: {hologram.GetComponent<Tower>().GetCost()}";
         hologram.SetActive(false);
+
+        //making it translucent
+        MeshRenderer[] meshes = hologram.GetComponentsInChildren<MeshRenderer>();
+        Material mat = new Material(Shader.Find("Standard"));
+        foreach (MeshRenderer mesh in meshes)
+        {
+            mat = mesh.material;
+            mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+            mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            mat.SetInt("_ZWrite", 0);
+            mat.DisableKeyword("_ALPHATEST_ON");
+            mat.DisableKeyword("_ALPHABLEND_ON");
+            mat.EnableKeyword("_ALPHAPREMULTIPLY_ON");
+            mat.renderQueue = 3000;
+            mesh.material = mat;
+        }
         return hologram;
     }
 
