@@ -56,6 +56,8 @@ public class PlayerShooting : MonoBehaviour
         HandleAnimations();
         if (Input.GetMouseButtonDown(0))
             Shoot(curIcicleType);
+        if (Input.GetKeyDown(KeyCode.R) && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            Reload(IcicleType.normal);
     }
 
     void HandleAnimations()
@@ -76,6 +78,8 @@ public class PlayerShooting : MonoBehaviour
 
     public void Reload(IcicleType type = 0)
     {
+        anim.Play("Reload");
+        curIcicleType = type;
         for (int i = 0; i < icicleList.Count; i++)
         {
             Destroy(icicleList[i]);
@@ -112,7 +116,6 @@ public class PlayerShooting : MonoBehaviour
         }
         else
         {
-            anim.Play("Reload");
             Reload(curIcicleType);
         }
     }
