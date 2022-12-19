@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1407374224344762144}
   - component: {fileID: 3997183853877264389}
   - component: {fileID: 3387067164209946579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2975595054299437107}
   - component: {fileID: 2383260000060987089}
   - component: {fileID: 643919874025215398}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8564747681263876173}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 2441578671654045154}
   - component: {fileID: 4446559077002469985}
   - component: {fileID: 109651520630044286}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 8792907236222549637}
   - component: {fileID: 6099485193138147593}
   - component: {fileID: 4194999186670620709}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 954957677819598146}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spawnpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - component: {fileID: 5855203100073520674}
   - component: {fileID: 4815281980108340363}
   - component: {fileID: 8169772252086931845}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   - component: {fileID: 5882750632298738927}
   - component: {fileID: 1279423851171159300}
   - component: {fileID: 8571395262612448389}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gatling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4646960224123376601}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   - component: {fileID: 5005259641356906005}
   - component: {fileID: 3787466214446958982}
   - component: {fileID: 7028734857214223135}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 846857161210866720}
   - component: {fileID: 2452111792940059315}
   - component: {fileID: 8266532005521391644}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 1229100281699452563}
   - component: {fileID: 1287462252524753328}
   - component: {fileID: 2757079446607209337}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 5962405888393844817}
   - component: {fileID: 333177750250278834}
   - component: {fileID: 9105273191264850101}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}

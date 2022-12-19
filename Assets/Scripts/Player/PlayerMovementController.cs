@@ -32,6 +32,7 @@ public class PlayerMovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        AudioListener.volume = SingletonVarMAnager.volume;
         if (currentState != MoveState.Mounting)
         {
             // skating toggle
