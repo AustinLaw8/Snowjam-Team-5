@@ -48,26 +48,26 @@ MonoBehaviour:
   waitTime: 1
   ENEMY_PREFABS:
   - {fileID: 7366624634862130008, guid: 4b43ed080ec5e4286bdee9799cae340d, type: 3}
+  - {fileID: 7366624634862130008, guid: 4b43ed080ec5e4286bdee9799cae340d, type: 3}
+  - {fileID: 7366624634862130008, guid: 94fc75545c3fa5941ba20b705217cff0, type: 3}
   player: {fileID: 0}
+  pauseCanvas: {fileID: 0}
   cash: 0
   health: 10
   cashText: {fileID: 0}
   hpText: {fileID: 0}
-  tempNodes:
-  - {x: 0, y: -4.192952, z: 0}
-  - {x: 4, y: -4.192952, z: 0}
-  - {x: 4, y: -4.192952, z: 4}
-  - {x: -4, y: -4.192952, z: 4}
-  - {x: -4, y: -4.192952, z: -4}
-  - {x: 4, y: -4.192952, z: -4}
-  - {x: 4, y: -4.192952, z: 4}
+  waveCountText: {fileID: 0}
+  enemyCountText: {fileID: 0}
+  endGameCanvas: {fileID: 0}
   goal:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  controllable: 0
+  gameState: 0
+  paused: 0
+  nodes: []
   enemyWaves:
   - enemies: 000000000000000000000000000000000000000000000000
   - enemies: 000000000000000000000000000000000000000000000000

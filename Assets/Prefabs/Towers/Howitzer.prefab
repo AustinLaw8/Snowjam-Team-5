@@ -10215,14 +10215,14 @@ MonoBehaviour:
   barrel: {fileID: 1225491394424942431}
   support: {fileID: 9188022518044375755}
   bullet: {fileID: 2223932350493873919, guid: cc16d02e3064b3d4db3c4eb43a22088a, type: 3}
-  shootForce: 30
+  shootForce: 40
   ptclFX:
   - {fileID: 7722511767983188459}
   - {fileID: 1009111525583239097}
   - {fileID: 4442024101119543005}
 --- !u!95 &8243880004064504608
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10239,7 +10239,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &6627076623004835666
 BoxCollider:
   m_ObjectHideFlags: 0

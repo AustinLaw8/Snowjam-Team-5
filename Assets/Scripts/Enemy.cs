@@ -23,6 +23,7 @@ public class Enemy : MobileEntity
 
     void Start()
     {
+        HP = maxHP;
         gameManager = GameManager.self;
     }
 

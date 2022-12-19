@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     public static GameManager self;
     public Transform[] nodes;
 
-    public enum EnemyType {water, cave, flying }
+    public enum EnemyType {water, cave, giant, flying }
 
     [System.Serializable]
     public struct EnemyWaves
@@ -127,6 +127,10 @@ public class GameManager : MonoBehaviour
             else if (enemyWaves[curWave].enemies[i] == EnemyType.cave)
             {
                 nextEnemy = ENEMY_PREFABS[1];
+            }
+            else if (enemyWaves[curWave].enemies[i] == EnemyType.giant)
+            {
+                nextEnemy = ENEMY_PREFABS[2];
             }
             else if (enemyWaves[curWave].enemies[i] == EnemyType.flying)
             {
