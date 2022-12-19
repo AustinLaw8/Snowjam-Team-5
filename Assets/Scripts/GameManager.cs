@@ -10,6 +10,7 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] GameObject airdrop;
     [SerializeField] Transform chosenSpawnPoint;
     [SerializeField] Transform[] spawnPoints;
     private HashSet<Enemy> currentEnemies;
@@ -108,6 +109,14 @@ public class GameManager : MonoBehaviour
     {
         if (currentWave == enemyWaves.Length) return;
         gameState = GameState.Defending;
+
+        // Drops powerups
+        for (int i = 0; i < currentWave; i++)
+        {
+            float xcoord = Random.Range(-50f, 30f);
+            float zcoord = Random.Range(-50f, 16f);
+            Instantiate(airdrop, new Vector3(xcoord, 27f, zcoord), Quaternion.identity);
+        }
 
         IEnumerator spawnRoutine = SpawnWave(currentWave);
         currentWave++;
