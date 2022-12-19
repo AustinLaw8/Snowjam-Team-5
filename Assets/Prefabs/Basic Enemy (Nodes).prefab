@@ -196,6 +196,7 @@ MonoBehaviour:
   m_onGroundScript: {fileID: 7366624634531258595}
   velocityModifier: 1
   friction: 0.4
-  value: 0
+  value: 2
+  curGoal: 0
   speed: 4
   acceleration: 0.5

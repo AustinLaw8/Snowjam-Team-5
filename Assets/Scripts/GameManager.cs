@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     GameObject nextEnemy;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private AudioSource music;
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private int cash;
     [SerializeField] private int health;
@@ -85,8 +86,13 @@ public class GameManager : MonoBehaviour
         }
 
         UpdateText();
+        UpdateVolume();
     }
 
+    void UpdateVolume()
+    {
+        music.volume = SingletonVarMAnager.music;
+    }
     void UpdateText()
     {
         cashText.text = $"{cash}";

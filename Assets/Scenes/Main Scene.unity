@@ -19657,6 +19657,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1179253089370128428, guid: 932d2d9fdabda4480a61e1bdff016c0e, type: 3}
+      propertyPath: cash
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1179253089370128428, guid: 932d2d9fdabda4480a61e1bdff016c0e, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 1878630059}
+    - target: {fileID: 1179253089370128428, guid: 932d2d9fdabda4480a61e1bdff016c0e, type: 3}
       propertyPath: hpText
       value: 
       objectReference: {fileID: 2123926407}
@@ -23205,7 +23213,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.434
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

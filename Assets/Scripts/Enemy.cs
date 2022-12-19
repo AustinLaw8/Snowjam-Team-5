@@ -57,6 +57,7 @@ public class Enemy : MobileEntity
 
                 Debug.Log("MADE IT BRO");
 
+                gameManager.RemoveEnemy(this);
                 Destroy(this.gameObject);
                 return;
             }
