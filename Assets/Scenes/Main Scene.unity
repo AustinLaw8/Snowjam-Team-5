@@ -15484,6 +15484,10 @@ PrefabInstance:
       propertyPath: enemyWaves.Array.data[9].enemies.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1179253089370128428, guid: 932d2d9fdabda4480a61e1bdff016c0e, type: 3}
+      propertyPath: enemyWaves.Array.data[0].enemies.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1179253089370128429, guid: 932d2d9fdabda4480a61e1bdff016c0e, type: 3}
       propertyPath: m_Name
       value: GameManager
