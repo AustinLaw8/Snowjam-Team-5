@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
 
         if (gameState == GameState.Defending && currentEnemies.Count == 0)
         {
-            EndWave();
+            Invoke("EndWave", 1);
         }
 
         UpdateText();
@@ -173,6 +173,7 @@ public class GameManager : MonoBehaviour
 
     public void DecreaseHealth(int amount) {
         health -= amount;
+        enemiesLeft--;
         if (health <= 0)
         {
             Debug.Log("you died, gg");
