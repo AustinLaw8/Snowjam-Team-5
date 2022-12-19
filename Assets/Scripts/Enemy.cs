@@ -6,7 +6,7 @@ using UnityEngine.AI;
 //[RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MobileEntity
 {
-    private static float I_AM_HERE_THRESHHOLD = 3f;
+    private static float I_AM_HERE_THRESHHOLD = 4f;
 
     [SerializeField] protected int value;
 
