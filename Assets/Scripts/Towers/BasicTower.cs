@@ -8,10 +8,15 @@ public class BasicTower : Tower
     [SerializeField] Transform gun;
     [SerializeField] Transform spawnpoint;
 
-    private Enemy target;
 
+    private void OnDestroy()
+    {
+        Debug.Log("ahhhh im dead");
+    }
     protected override bool AttemptAttack()
     {
+        Enemy target = null;
+        
         switch (targettingType)
         {
             case Target.Closest:

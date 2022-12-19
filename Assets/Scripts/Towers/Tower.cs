@@ -112,16 +112,18 @@ public abstract class Tower : MonoBehaviour
 
         foreach(Enemy enemy in currentEnemies)
         {
-            //float dist = enemy.GetPathDistance();
-            float dist = 0; //IDK might not work
-            if (dist <= range && dist < minRemainingDist)
-            {
-                minRemainingDist = dist;
+            if (enemy == null) continue;
+            float remainingDist = enemy.GetPathDistance();
+            float dist = Vector3.Distance(enemy.transform.position, this.transform.position);
+            if (dist <= range && 
+                ((target && enemy.curGoal > target.curGoal) ||
+                (remainingDist < minRemainingDist))
+            ) {
+                minRemainingDist = remainingDist;
                 target = enemy;
             }
         }
         return target;
-        
     }
 
     public int GetCost() { return cost; }
