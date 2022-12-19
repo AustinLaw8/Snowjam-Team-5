@@ -26,7 +26,7 @@ public class Powerup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, Time.deltaTime, 0));
+        transform.Rotate(new Vector3(0, 1.2f, 0));
     }
 
     private void OnTriggerEnter(Collider other)

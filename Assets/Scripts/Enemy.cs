@@ -15,7 +15,7 @@ public class Enemy : MobileEntity
     protected GameManager gameManager;
 
     int currentTargetNode = 0;
-    int curGoal = 0;
+    public int curGoal = 0;
 
     int nodeCheckDelay;
 
@@ -64,24 +64,22 @@ public class Enemy : MobileEntity
 
     void CheckGoal()
     {
-        //if (agent.remainingDistance < I_AM_HERE_THRESHHOLD)
+        curGoal++;
+        if (curGoal >= gameManager.goal.Length)
         {
-            curGoal++;
-            if (curGoal >= gameManager.goal.Length)
-            {
 
-                // If popping pops the last node, it means we are at the end
-                gameManager.DecreaseHealth(1);
+            // If popping pops the last node, it means we are at the end
+            gameManager.DecreaseHealth(1);
 
-                //gameManager.RemoveEnemy(this);
-                Destroy(this.gameObject);
-                return;
-            }
-            else
-            {
-                //agent.destination = gameManager.goal[curGoal].position;
-            }
+            gameManager.RemoveEnemy(this);
+            Destroy(this.gameObject);
+            return;
         }
+    }
+
+    public float GetPathDistance()
+    {
+        return Vector3.Distance(this.transform.position, gameManager.nodes[currentTargetNode].position);
     }
 
     protected override void Die()

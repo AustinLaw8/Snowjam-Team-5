@@ -56,7 +56,7 @@ public class Howitzer : MountableTower
 
     IEnumerator stopExhaustFX()
     {
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(15);
         ptclFX[2].Stop();
     }
 }
