@@ -33,6 +33,7 @@ public class HowitzerShell : MonoBehaviour
     {
         if (other.gameObject.layer != 7)
         {
+            
             // Explode and freeze enemies 
             foreach (Collider hit in Physics.OverlapSphere(gameObject.transform.position, 1.2f, 1 << 8))
             {
