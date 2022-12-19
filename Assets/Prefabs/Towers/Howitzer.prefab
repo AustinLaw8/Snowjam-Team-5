@@ -10205,7 +10205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 0
-  attackSpeed: 8
+  attackSpeed: 15
   cost: 20
   gameManager: {fileID: 0}
   targettingType: 0

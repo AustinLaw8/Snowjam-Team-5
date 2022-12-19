@@ -10,7 +10,8 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] Transform spawnPoint;
+    [SerializeField] Transform chosenSpawnPoint;
+    [SerializeField] Transform[] spawnPoints;
     private HashSet<Enemy> currentEnemies;
     [SerializeField] private float waitTime;
     [SerializeField] private GameObject[] ENEMY_PREFABS;
@@ -123,21 +124,24 @@ public class GameManager : MonoBehaviour
             if (enemyWaves[curWave].enemies[i] == EnemyType.water)
             {
                 nextEnemy = ENEMY_PREFABS[0];
+                chosenSpawnPoint = spawnPoints[0];
             }
             else if (enemyWaves[curWave].enemies[i] == EnemyType.cave)
             {
                 nextEnemy = ENEMY_PREFABS[1];
+                chosenSpawnPoint = spawnPoints[1];
             }
             else if (enemyWaves[curWave].enemies[i] == EnemyType.giant)
             {
                 nextEnemy = ENEMY_PREFABS[2];
+                chosenSpawnPoint = spawnPoints[1];
             }
             else if (enemyWaves[curWave].enemies[i] == EnemyType.flying)
             {
                 //nextEnemy = ENEMY_PREFABS[2];
             }
 
-            Enemy newEnemy = GameObject.Instantiate(nextEnemy, spawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
+            Enemy newEnemy = GameObject.Instantiate(nextEnemy, chosenSpawnPoint.position, Quaternion.identity).GetComponent<Enemy>();
             currentEnemies.Add(newEnemy);
             yield return new WaitForSeconds(waitTime);
         }
