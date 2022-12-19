@@ -194,6 +194,7 @@ public class GameManager : MonoBehaviour
         }
         endGameCanvas.SetActive(true);
         Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public GameState GetGameState() { return gameState; }
