@@ -1115,6 +1115,7 @@ MonoBehaviour:
   - {fileID: 7229135029709498238, guid: bae67d2880f2a434db25df607c374070, type: 3}
   - {fileID: 6756344395716503792, guid: 78919896a7267496297c09cfa4dec56f, type: 3}
   - {fileID: 8415461202077114481, guid: 5982e72847bbe2c48beb5051dba62b82, type: 3}
+  - {fileID: 6550602363930848853, guid: 25a96cd717485d941a13ae9358975bfa, type: 3}
   rotationSpeed: 72
   scrollRate: 0.25
   UI_Text: {fileID: 0}

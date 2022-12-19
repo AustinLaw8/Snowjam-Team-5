@@ -26,7 +26,7 @@ public class Gatling : MountableTower
     void Update()
     {
         yaxis = Mathf.Clamp(yaxis, -30f, 0f);
-        xaxis = Mathf.Clamp(xaxis, -45f, 45f);
+        // xaxis = Mathf.Clamp(xaxis, -45f, 45f);
 
         barrel.localEulerAngles = new Vector3(yaxis, xaxis, 0);
 
