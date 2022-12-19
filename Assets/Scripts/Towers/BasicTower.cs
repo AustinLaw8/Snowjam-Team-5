@@ -36,6 +36,7 @@ public class BasicTower : Tower
             projectile.transform.position = spawnpoint.position;
             projectile.transform.LookAt(target.transform.position);
             gun.transform.LookAt(target.transform.position);
+            GetComponent<AudioSource>().Play();
             return true;
         }
         else

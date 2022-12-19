@@ -11,6 +11,7 @@ public class Howitzer : MountableTower
     [SerializeField] float shootForce = 5f;
     float curDelay;
     Animator anim;
+    AudioSource sound;
 
     [SerializeField] ParticleSystem[] ptclFX;
     
@@ -20,6 +21,7 @@ public class Howitzer : MountableTower
         xaxis = support.localEulerAngles.y;
         yaxis = barrel.localEulerAngles.x;
         anim = GetComponent<Animator>();
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -43,6 +45,7 @@ public class Howitzer : MountableTower
         shell.GetComponent<HowitzerShell>().ApplyForce(shootForce);
         anim.Play("Fire");
         curDelay = attackSpeed;
+        sound.Play();
 
         for (int i = 0; i < 3; i++)
         {

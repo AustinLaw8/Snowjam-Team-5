@@ -112,7 +112,8 @@ public abstract class Tower : MonoBehaviour
 
         foreach(Enemy enemy in currentEnemies)
         {
-            float dist = enemy.GetPathDistance();
+            //float dist = enemy.GetPathDistance();
+            float dist = 0; //IDK might not work
             if (dist <= range && dist < minRemainingDist)
             {
                 minRemainingDist = dist;
