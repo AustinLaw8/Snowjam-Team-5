@@ -81,6 +81,7 @@ public class TowerPlacement : MonoBehaviour
                 // Place hologram, allow rotation
                 AttachRangeIndicator(chosenTower.transform);
                 chosenTower.transform.position = hit.point + offset;
+
                 MeshRenderer[] meshes = chosenTower.GetComponentsInChildren<MeshRenderer>();
                 foreach (MeshRenderer mesh in meshes)
                 {
@@ -237,6 +238,11 @@ public class TowerPlacement : MonoBehaviour
             mat.renderQueue = 3000;
             mesh.material = mat;
         }
+
+        //rotating it to face away from player
+        //hologram.transform.rotation = Quaternion.LookRotation(Camera.main.transform.rotation, Vector3.up);
+        Vector3 eulerRotation = Camera.main.transform.rotation.eulerAngles;
+       hologram.transform.rotation = Quaternion.Euler(0, eulerRotation.y, 0);
         return hologram;
     }
 
