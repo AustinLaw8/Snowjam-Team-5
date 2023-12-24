@@ -13,9 +13,13 @@ public class Gatling : MountableTower
     float curDelay;
     [SerializeField] float chargeTime = 1f;
     float spinUpDuration;
+
+    AudioSource sound;
+
     // Start is called before the first frame update
     void Start()
     {
+        sound = GetComponent<AudioSource>();
         xaxis = barrel.localEulerAngles.y;
         yaxis = barrel.localEulerAngles.x;
         curDelay = 0;
@@ -55,6 +59,7 @@ public class Gatling : MountableTower
             {
                 Instantiate(bullet, spawnpoint.position, spawnpoint.rotation);
                 curDelay = attackSpeed;
+                sound.Play();
             }
         }
     }
